@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// TODO: Insert More Specific Routes Here
+
+// Generic Route for base pages
+Route::get('/{slug}', 'PagesController@index');
 
 
 Route::group(['prefix' => 'admin'], function () {
