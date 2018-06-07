@@ -3,7 +3,34 @@
   font-family: $default-font;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 1rem 0;
   font-family: $header-font;
   font-weight: 700;
+}
+h1, h2 {
+  font-size: 48px;
+}
+
+header {
+  width: 100%;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+main {
+  width: 75%;
+  margin: 0 auto;
+}
+
+#app {
+  margin-top: 76px; // TODO: Adjust with JS
 }

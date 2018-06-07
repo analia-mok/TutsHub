@@ -4,13 +4,136 @@
   font-family: "Lato", sans-serif;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  margin: 0;
+  padding: 1rem 0;
   font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
+}
+
+h1,
+h2 {
+  font-size: 48px;
+}
+
+header {
+  width: 100%;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+main {
+  width: 75%;
+  margin: 0 auto;
+}
+
+#app {
+  margin-top: 76px;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 2rem;
+  background-color: #15BFB1;
+}
+
+.header__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100px;
+  width: 40%;
+  text-align: center;
+  color: #EFEFEF;
+}
+
+.header__content h2 {
+  padding-bottom: 0;
+}
+
+.header__content p {
+  font-size: 1.1rem;
+}
+
+.header--home {
+  height: 60vh;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: #FCFCFC;
+}
+
+.nav__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.nav__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__items li a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: #11998E;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.nav__items:not(.nav__items--logo) {
+  margin-left: auto;
+}
+
+.nav__items--logo li a {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 2.1rem;
 }
 

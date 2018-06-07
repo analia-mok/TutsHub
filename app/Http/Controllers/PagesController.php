@@ -11,6 +11,11 @@ class PagesController extends Controller {
 
   public function index($slug){
     $page = Page::where('slug', $slug)->first();
+
+    if($page === null){
+      return abort(404);
+    }
+
     return view('page')->with('page', $page);
   }
 
