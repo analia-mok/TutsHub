@@ -1,18 +1,19 @@
 .header {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   padding: 2rem;
   background-color: $bright-turquoise;
   &__content {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     flex-direction: column;
     min-height: 100px;
     width: 40%;
     text-align: center;
     color: $off-white;
+    height: 40vh;
     h2{
       padding-bottom: 0;
     }

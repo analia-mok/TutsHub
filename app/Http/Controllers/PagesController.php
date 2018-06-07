@@ -12,7 +12,7 @@ class PagesController extends Controller {
   public function index($slug){
     $page = Page::where('slug', $slug)->first();
 
-    if($page === null){
+    if($page === null || ($page !== null && $page->status !== "PUBLISHED")){
       return abort(404);
     }
 
