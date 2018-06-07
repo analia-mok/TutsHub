@@ -13,10 +13,9 @@
 
 // TODO: Insert More Specific Routes Here
 
-// Generic Route for base pages
-Route::get('/{slug}', 'PagesController@index');
-
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+// Generic Route for base pages
+Route::get('/{slug}', 'PagesController@index');
