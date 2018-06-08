@@ -16,5 +16,13 @@
 @endsection
 
 @section('content')
-<p>This is the content</p>
+@if(count($posts) > 0)
+<ul>
+  @foreach ($posts as $post)
+    <li>{{ $post->title }}</li>
+  @endforeach
+</ul>
+@else
+  <strong>Sorry, there are no available posts</strong>
+@endif
 @endsection
