@@ -18,4 +18,5 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 // Generic Route for base pages
+Route::get('/', 'PagesController@index');
 Route::get('/{slug}', 'PagesController@index');
