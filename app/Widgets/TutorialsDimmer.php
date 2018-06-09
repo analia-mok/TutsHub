@@ -25,7 +25,7 @@ class TutorialsDimmer extends AbstractWidget
         $string = ($count != 1) ? 'Tutorials' : 'Tutorial';
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-news',
+            'icon'   => 'voyager-logbook',
             'title'  => "{$count} {$string}",
             'text'   => "You have {$count} {$string} in your database.",
             'button' => [
