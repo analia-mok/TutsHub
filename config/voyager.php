@@ -160,10 +160,10 @@ return [
         ],
 
         'widgets' => [
-            'App\\Widgets\\UserDimmer',
             'App\\Widgets\\NewsDimmer',
-            'App\\Widgets\\PostDimmer',
+            // 'App\\Widgets\\PostDimmer', // Posts could be used later for blog posts. This project will currently not have a blog component
             'App\\Widgets\\PageDimmer',
+            'App\\Widgets\\UserDimmer',
         ],
 
     ],
