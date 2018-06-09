@@ -34,3 +34,10 @@ Happy dev-ing!
 * `model_name` - _Just_ the name of the model. Assumes that model is using the default namespace `\App\`.
 * Will be prompted for which voyager icon to use on the widget. Defaults to `voyager-helm`
 * Also will set a default.jpg for the widget's background
+
+## Todos
+* Finish front-end views
+  * Also make responsive
+* Complete Search Functionality
+* Create custom admin edit screens
+* Either adjust current image field or create a custom image field to select images from the media manager, not from the current system's file explorer
