@@ -22,6 +22,10 @@ A coding tutorial website developed with Laravel 5.6 with Laravel Voyager as the
 
 Happy dev-ing!
 
+## Project Structure (Work In Progress)
+* Widgets can be found at `app/Widgets`
+* Widget images are stored in `public/images`
+
 ## Extra Commands
 
 `php artisan make:vwidget widget_name model_name` - A quick command for generating the voyager widget boilerplate. Not 100% perfect but does the job. You will have to manually add the widget to your voyager.config file
