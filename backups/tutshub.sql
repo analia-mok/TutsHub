@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2018 at 04:47 AM
+-- Generation Time: Jun 09, 2018 at 06:41 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -43,8 +43,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, NULL, 1, 'Category 1', 'category-1', '2018-06-05 06:46:24', '2018-06-05 06:46:24'),
-(2, NULL, 1, 'Category 2', 'category-2', '2018-06-05 06:46:24', '2018-06-05 06:46:24');
+(3, NULL, 1, 'React', 'react', '2018-06-09 20:09:45', '2018-06-09 20:09:45'),
+(4, NULL, 1, 'Wordpress', 'wordpress', '2018-06-09 20:09:54', '2018-06-09 20:09:54'),
+(5, NULL, 1, 'Laravel', 'laravel', '2018-06-09 20:10:02', '2018-06-09 20:10:02'),
+(6, NULL, 1, 'PHP', 'php', '2018-06-09 20:10:21', '2018-06-09 20:10:21'),
+(7, NULL, 1, 'Javascript', 'javascript', '2018-06-09 20:10:29', '2018-06-09 20:10:29');
 
 -- --------------------------------------------------------
 
@@ -102,24 +105,24 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (27, 4, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\"}}', 5),
 (28, 4, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, '', 6),
 (29, 4, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '', 7),
-(30, 5, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '', 1),
-(31, 5, 'author_id', 'text', 'Author', 1, 0, 1, 1, 0, 1, '', 2),
-(32, 5, 'category_id', 'text', 'Category', 1, 0, 1, 1, 1, 0, '', 3),
-(33, 5, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '', 4),
-(34, 5, 'excerpt', 'text_area', 'Excerpt', 1, 0, 1, 1, 1, 1, '', 5),
-(35, 5, 'body', 'rich_text_box', 'Body', 1, 0, 1, 1, 1, 1, '', 6),
+(30, 5, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
+(31, 5, 'author_id', 'text', 'Author', 1, 0, 1, 1, 0, 1, NULL, 2),
+(32, 5, 'category_id', 'text', 'Category', 0, 0, 1, 1, 1, 0, NULL, 3),
+(33, 5, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, NULL, 4),
+(34, 5, 'excerpt', 'text_area', 'Excerpt', 0, 0, 1, 1, 1, 1, NULL, 5),
+(35, 5, 'body', 'rich_text_box', 'Body', 1, 0, 1, 1, 1, 1, NULL, 6),
 (36, 5, 'image', 'image', 'Post Image', 0, 1, 1, 1, 1, 1, '{\"resize\":{\"width\":\"1000\",\"height\":\"null\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}', 7),
 (37, 5, 'slug', 'text', 'Slug', 1, 0, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:posts,slug\"}}', 8),
-(38, 5, 'meta_description', 'text_area', 'Meta Description', 1, 0, 1, 1, 1, 1, '', 9),
-(39, 5, 'meta_keywords', 'text_area', 'Meta Keywords', 1, 0, 1, 1, 1, 1, '', 10),
+(38, 5, 'meta_description', 'text_area', 'Meta Description', 0, 0, 1, 1, 1, 1, NULL, 9),
+(39, 5, 'meta_keywords', 'text_area', 'Meta Keywords', 0, 0, 1, 1, 1, 1, NULL, 10),
 (40, 5, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}', 11),
-(41, 5, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '', 12),
-(42, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '', 13),
-(43, 5, 'seo_title', 'text', 'SEO Title', 0, 1, 1, 1, 1, 1, '', 14),
-(44, 5, 'featured', 'checkbox', 'Featured', 1, 1, 1, 1, 1, 1, '', 15),
+(41, 5, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, NULL, 12),
+(42, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 13),
+(43, 5, 'seo_title', 'text', 'SEO Title', 0, 1, 1, 1, 1, 1, NULL, 14),
+(44, 5, 'featured', 'checkbox', 'Featured', 1, 1, 1, 1, 1, 1, NULL, 15),
 (58, 7, 'id', 'number', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
 (59, 7, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, NULL, 2),
-(60, 7, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:posts,slug\"}}', 3),
+(60, 7, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:pages,slug\"}}', 3),
 (61, 7, 'header_title', 'text', 'Header Title', 1, 0, 1, 1, 1, 1, NULL, 4),
 (62, 7, 'header_content', 'text_area', 'Header Content', 0, 0, 1, 1, 1, 1, NULL, 5),
 (64, 7, 'meta_title', 'text', 'Meta Title', 0, 0, 1, 1, 1, 1, NULL, 7),
@@ -130,7 +133,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (70, 7, 'status', 'select_dropdown', 'Status', 0, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}', 11),
 (71, 8, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
 (72, 8, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, NULL, 2),
-(73, 8, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:posts,slug\"}}', 3),
+(73, 8, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:news,slug\"}}', 3),
 (74, 8, 'content', 'rich_text_box', 'Content', 0, 0, 1, 1, 1, 1, NULL, 4),
 (75, 8, 'meta_title', 'text', 'Meta Title', 0, 0, 1, 1, 1, 1, NULL, 5),
 (76, 8, 'meta_description', 'rich_text_box', 'Meta Description', 0, 0, 1, 1, 1, 1, NULL, 6),
@@ -141,7 +144,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (81, 8, 'news_belongsto_user_relationship', 'relationship', 'Authors', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"author_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11),
 (82, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
 (83, 9, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, NULL, 2),
-(84, 9, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:posts,slug\"}}', 3),
+(84, 9, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:tutorials,slug\"}}', 3),
 (85, 9, 'overview', 'rich_text_box', 'Overview', 0, 0, 1, 1, 1, 1, NULL, 4),
 (86, 9, 'content', 'rich_text_box', 'Content', 0, 0, 1, 1, 1, 1, NULL, 5),
 (87, 9, 'meta_title', 'text', 'Meta Title', 0, 0, 1, 1, 1, 1, NULL, 6),
@@ -152,7 +155,20 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (92, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 11),
 (93, 9, 'total_likes', 'text', 'Total Likes', 0, 1, 1, 0, 0, 0, NULL, 12),
 (94, 9, 'tutorial_belongsto_user_relationship', 'relationship', 'Author', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"author_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
-(95, 9, 'tutorial_belongstomany_category_relationship', 'relationship', 'categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"tutorial_category\",\"pivot\":\"1\",\"taggable\":\"0\"}', 14);
+(95, 9, 'tutorial_belongstomany_category_relationship', 'relationship', 'Categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"tutorial_category\",\"pivot\":\"1\",\"taggable\":\"0\"}', 14),
+(96, 9, 'guide_id', 'text', 'Guide Id', 0, 0, 1, 1, 0, 0, NULL, 13),
+(97, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(98, 10, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
+(99, 10, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:guides,slug\"}}', 3),
+(100, 10, 'overview', 'rich_text_box', 'Overview', 0, 0, 1, 1, 1, 1, NULL, 4),
+(101, 10, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 8),
+(102, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 9),
+(103, 10, 'status', 'select_dropdown', 'Status', 0, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}', 6),
+(104, 10, 'guide_belongstomany_category_relationship', 'relationship', 'Categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"guide_category\",\"pivot\":\"1\",\"taggable\":\"0\"}', 7),
+(105, 10, 'guide_hasmany_tutorial_relationship', 'relationship', 'Associated Tutorials', 0, 0, 1, 1, 1, 1, '{\"model\":\"App\\\\Tutorial\",\"table\":\"tutorials\",\"type\":\"hasMany\",\"column\":\"guide_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 5),
+(106, 9, 'tutorial_belongsto_guide_relationship', 'relationship', 'Guide', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Guide\",\"table\":\"guides\",\"type\":\"belongsTo\",\"column\":\"guide_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 15),
+(107, 10, 'meta_title', 'text', 'Meta Title', 0, 0, 1, 1, 1, 1, NULL, 8),
+(108, 10, 'meta_description', 'rich_text_box', 'Meta Description', 0, 0, 1, 1, 1, 1, NULL, 9);
 
 -- --------------------------------------------------------
 
@@ -187,10 +203,11 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2018-06-05 06:46:24', '2018-06-05 06:46:24'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2018-06-05 06:46:24', '2018-06-05 06:46:24'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2018-06-05 06:46:24', '2018-06-05 06:46:24'),
-(5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2018-06-05 06:46:25', '2018-06-05 06:46:25'),
-(7, 'pages', 'pages', 'Page', 'Pages', NULL, 'App\\Page', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-07 03:57:33', '2018-06-07 03:57:33'),
-(8, 'news', 'news', 'News', 'News', NULL, 'App\\News', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-08 05:57:48', '2018-06-08 05:57:48'),
-(9, 'tutorials', 'tutorials', 'Tutorial', 'Tutorials', NULL, 'App\\Tutorial', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-09 06:31:05', '2018-06-09 06:31:05');
+(5, 'posts', 'posts', 'Post', 'Posts', 'voyager-bookmark', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-05 06:46:25', '2018-06-09 19:59:37'),
+(7, 'pages', 'pages', 'Page', 'Pages', 'voyager-documentation', 'App\\Page', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-07 03:57:33', '2018-06-09 20:03:49'),
+(8, 'news', 'news', 'News', 'News', 'voyager-news', 'App\\News', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-08 05:57:48', '2018-06-09 20:03:28'),
+(9, 'tutorials', 'tutorials', 'Tutorial', 'Tutorials', 'voyager-logbook', 'App\\Tutorial', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-09 06:31:05', '2018-06-09 19:58:16'),
+(10, 'guides', 'guides', 'Guide', 'Guides', 'voyager-list', 'App\\Guide', NULL, NULL, 'A listed guide of tutorials aimed to teach a specific topic', 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-09 19:54:54', '2018-06-09 20:03:17');
 
 -- --------------------------------------------------------
 
@@ -241,18 +258,18 @@ CREATE TABLE `menu_items` (
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2018-06-05 06:46:24', '2018-06-05 06:46:24', 'voyager.dashboard', NULL),
-(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 7, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.media.index', NULL),
-(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 9, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.users.index', NULL),
-(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 8, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.roles.index', NULL),
-(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 10, '2018-06-05 06:46:24', '2018-06-09 06:32:52', NULL, NULL),
+(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 8, '2018-06-05 06:46:24', '2018-06-09 19:59:15', 'voyager.media.index', NULL),
+(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 10, '2018-06-05 06:46:24', '2018-06-09 19:59:15', 'voyager.users.index', NULL),
+(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 9, '2018-06-05 06:46:24', '2018-06-09 19:59:15', 'voyager.roles.index', NULL),
+(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 11, '2018-06-05 06:46:24', '2018-06-09 19:59:15', NULL, NULL),
 (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2018-06-05 06:46:24', '2018-06-05 06:52:51', 'voyager.menus.index', NULL),
 (7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 2, '2018-06-05 06:46:24', '2018-06-05 06:52:51', 'voyager.database.index', NULL),
 (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2018-06-05 06:46:24', '2018-06-05 06:52:51', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2018-06-05 06:46:24', '2018-06-05 06:52:51', 'voyager.bread.index', NULL),
-(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 11, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.settings.index', NULL),
-(11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 6, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.categories.index', NULL),
-(12, 1, 'Posts', '', '_self', 'voyager-bookmark', '#000000', NULL, 4, '2018-06-05 06:46:25', '2018-06-09 06:32:52', 'voyager.posts.index', 'null'),
-(13, 1, 'Pages', '', '_self', 'voyager-documentation', '#000000', NULL, 5, '2018-06-05 06:46:25', '2018-06-09 06:32:52', 'voyager.pages.index', 'null'),
+(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 12, '2018-06-05 06:46:24', '2018-06-09 19:59:15', 'voyager.settings.index', NULL),
+(11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 7, '2018-06-05 06:46:24', '2018-06-09 19:59:15', 'voyager.categories.index', NULL),
+(12, 1, 'Posts', '', '_self', 'voyager-bookmark', '#000000', NULL, 5, '2018-06-05 06:46:25', '2018-06-09 19:59:17', 'voyager.posts.index', 'null'),
+(13, 1, 'Pages', '', '_self', 'voyager-documentation', '#000000', NULL, 6, '2018-06-05 06:46:25', '2018-06-09 19:59:17', 'voyager.pages.index', 'null'),
 (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2018-06-05 06:46:25', '2018-06-05 06:52:51', 'voyager.hooks', NULL),
 (15, 2, 'Home', '', '_self', NULL, '#000000', NULL, 10, '2018-06-07 05:43:12', '2018-06-08 05:40:17', NULL, ''),
 (16, 2, 'About', 'about', '_self', NULL, '#000000', NULL, 11, '2018-06-07 05:43:29', '2018-06-07 05:43:29', NULL, ''),
@@ -260,7 +277,8 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (18, 2, 'Tutorials', 'tutorials', '_self', NULL, '#000000', NULL, 13, '2018-06-07 05:43:53', '2018-06-07 05:43:53', NULL, ''),
 (19, 2, 'News', 'news', '_self', NULL, '#000000', NULL, 14, '2018-06-07 05:44:01', '2018-06-07 05:44:01', NULL, ''),
 (20, 1, 'News', '', '_self', 'voyager-news', '#000000', NULL, 2, '2018-06-08 05:57:48', '2018-06-08 06:01:20', 'voyager.news.index', 'null'),
-(21, 1, 'Tutorials', '', '_self', 'voyager-logbook', '#000000', NULL, 3, '2018-06-09 06:31:05', '2018-06-09 06:32:52', 'voyager.tutorials.index', 'null');
+(21, 1, 'Tutorials', '', '_self', 'voyager-logbook', '#000000', NULL, 3, '2018-06-09 06:31:05', '2018-06-09 06:32:52', 'voyager.tutorials.index', 'null'),
+(22, 1, 'Guides', '', '_self', 'voyager-list', '#000000', NULL, 4, '2018-06-09 19:54:54', '2018-06-09 20:02:43', 'voyager.guides.index', 'null');
 
 -- --------------------------------------------------------
 
@@ -446,7 +464,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (53, 'read_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05'),
 (54, 'edit_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05'),
 (55, 'add_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05'),
-(56, 'delete_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05');
+(56, 'delete_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05'),
+(57, 'browse_guides', 'guides', '2018-06-09 19:54:54', '2018-06-09 19:54:54'),
+(58, 'read_guides', 'guides', '2018-06-09 19:54:54', '2018-06-09 19:54:54'),
+(59, 'edit_guides', 'guides', '2018-06-09 19:54:54', '2018-06-09 19:54:54'),
+(60, 'add_guides', 'guides', '2018-06-09 19:54:54', '2018-06-09 19:54:54'),
+(61, 'delete_guides', 'guides', '2018-06-09 19:54:54', '2018-06-09 19:54:54');
 
 -- --------------------------------------------------------
 
@@ -549,7 +572,12 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (53, 1),
 (54, 1),
 (55, 1),
-(56, 1);
+(56, 1),
+(57, 1),
+(58, 1),
+(59, 1),
+(60, 1),
+(61, 1);
 
 -- --------------------------------------------------------
 
@@ -865,19 +893,19 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -913,7 +941,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `posts`
