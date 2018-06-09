@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2018 at 03:08 AM
+-- Generation Time: Jun 09, 2018 at 04:47 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `testblog`
+-- Database: `tutshub`
 --
 
 -- --------------------------------------------------------
@@ -138,7 +138,21 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (78, 8, 'author_id', 'select_dropdown', 'Author Id', 0, 1, 1, 1, 1, 1, NULL, 8),
 (79, 8, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 0, NULL, 9),
 (80, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 10),
-(81, 8, 'news_belongsto_user_relationship', 'relationship', 'Authors', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"author_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11);
+(81, 8, 'news_belongsto_user_relationship', 'relationship', 'Authors', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"author_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11),
+(82, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(83, 9, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, NULL, 2),
+(84, 9, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:posts,slug\"}}', 3),
+(85, 9, 'overview', 'rich_text_box', 'Overview', 0, 0, 1, 1, 1, 1, NULL, 4),
+(86, 9, 'content', 'rich_text_box', 'Content', 0, 0, 1, 1, 1, 1, NULL, 5),
+(87, 9, 'meta_title', 'text', 'Meta Title', 0, 0, 1, 1, 1, 1, NULL, 6),
+(88, 9, 'meta_description', 'rich_text_box', 'Meta Description', 0, 0, 1, 1, 1, 1, NULL, 7),
+(89, 9, 'status', 'select_dropdown', 'Status', 0, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}', 8),
+(90, 9, 'author_id', 'text', 'Author Id', 0, 1, 1, 1, 1, 1, NULL, 9),
+(91, 9, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 10),
+(92, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 11),
+(93, 9, 'total_likes', 'text', 'Total Likes', 0, 1, 1, 0, 0, 0, NULL, 12),
+(94, 9, 'tutorial_belongsto_user_relationship', 'relationship', 'Author', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"author_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
+(95, 9, 'tutorial_belongstomany_category_relationship', 'relationship', 'categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"tutorial_category\",\"pivot\":\"1\",\"taggable\":\"0\"}', 14);
 
 -- --------------------------------------------------------
 
@@ -175,7 +189,8 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2018-06-05 06:46:24', '2018-06-05 06:46:24'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2018-06-05 06:46:25', '2018-06-05 06:46:25'),
 (7, 'pages', 'pages', 'Page', 'Pages', NULL, 'App\\Page', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-07 03:57:33', '2018-06-07 03:57:33'),
-(8, 'news', 'news', 'News', 'News', NULL, 'App\\News', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-08 05:57:48', '2018-06-08 05:57:48');
+(8, 'news', 'news', 'News', 'News', NULL, 'App\\News', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-08 05:57:48', '2018-06-08 05:57:48'),
+(9, 'tutorials', 'tutorials', 'Tutorial', 'Tutorials', NULL, 'App\\Tutorial', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-06-09 06:31:05', '2018-06-09 06:31:05');
 
 -- --------------------------------------------------------
 
@@ -226,25 +241,26 @@ CREATE TABLE `menu_items` (
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2018-06-05 06:46:24', '2018-06-05 06:46:24', 'voyager.dashboard', NULL),
-(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 6, '2018-06-05 06:46:24', '2018-06-08 05:59:04', 'voyager.media.index', NULL),
-(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 8, '2018-06-05 06:46:24', '2018-06-08 05:59:04', 'voyager.users.index', NULL),
-(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 7, '2018-06-05 06:46:24', '2018-06-08 05:59:04', 'voyager.roles.index', NULL),
-(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 9, '2018-06-05 06:46:24', '2018-06-08 05:59:04', NULL, NULL),
+(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 7, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.media.index', NULL),
+(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 9, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.users.index', NULL),
+(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 8, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.roles.index', NULL),
+(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 10, '2018-06-05 06:46:24', '2018-06-09 06:32:52', NULL, NULL),
 (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2018-06-05 06:46:24', '2018-06-05 06:52:51', 'voyager.menus.index', NULL),
 (7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 2, '2018-06-05 06:46:24', '2018-06-05 06:52:51', 'voyager.database.index', NULL),
 (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2018-06-05 06:46:24', '2018-06-05 06:52:51', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2018-06-05 06:46:24', '2018-06-05 06:52:51', 'voyager.bread.index', NULL),
-(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 10, '2018-06-05 06:46:24', '2018-06-08 05:59:04', 'voyager.settings.index', NULL),
-(11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 5, '2018-06-05 06:46:24', '2018-06-08 05:59:04', 'voyager.categories.index', NULL),
-(12, 1, 'Posts', '', '_self', 'voyager-bookmark', '#000000', NULL, 3, '2018-06-05 06:46:25', '2018-06-08 06:03:16', 'voyager.posts.index', 'null'),
-(13, 1, 'Pages', '', '_self', 'voyager-documentation', '#000000', NULL, 4, '2018-06-05 06:46:25', '2018-06-08 06:02:58', 'voyager.pages.index', 'null'),
+(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 11, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.settings.index', NULL),
+(11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 6, '2018-06-05 06:46:24', '2018-06-09 06:32:52', 'voyager.categories.index', NULL),
+(12, 1, 'Posts', '', '_self', 'voyager-bookmark', '#000000', NULL, 4, '2018-06-05 06:46:25', '2018-06-09 06:32:52', 'voyager.posts.index', 'null'),
+(13, 1, 'Pages', '', '_self', 'voyager-documentation', '#000000', NULL, 5, '2018-06-05 06:46:25', '2018-06-09 06:32:52', 'voyager.pages.index', 'null'),
 (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2018-06-05 06:46:25', '2018-06-05 06:52:51', 'voyager.hooks', NULL),
 (15, 2, 'Home', '', '_self', NULL, '#000000', NULL, 10, '2018-06-07 05:43:12', '2018-06-08 05:40:17', NULL, ''),
 (16, 2, 'About', 'about', '_self', NULL, '#000000', NULL, 11, '2018-06-07 05:43:29', '2018-06-07 05:43:29', NULL, ''),
 (17, 2, 'Guides', 'guides', '_self', NULL, '#000000', NULL, 12, '2018-06-07 05:43:42', '2018-06-07 05:43:42', NULL, ''),
 (18, 2, 'Tutorials', 'tutorials', '_self', NULL, '#000000', NULL, 13, '2018-06-07 05:43:53', '2018-06-07 05:43:53', NULL, ''),
 (19, 2, 'News', 'news', '_self', NULL, '#000000', NULL, 14, '2018-06-07 05:44:01', '2018-06-07 05:44:01', NULL, ''),
-(20, 1, 'News', '', '_self', 'voyager-news', '#000000', NULL, 2, '2018-06-08 05:57:48', '2018-06-08 06:01:20', 'voyager.news.index', 'null');
+(20, 1, 'News', '', '_self', 'voyager-news', '#000000', NULL, 2, '2018-06-08 05:57:48', '2018-06-08 06:01:20', 'voyager.news.index', 'null'),
+(21, 1, 'Tutorials', '', '_self', 'voyager-logbook', '#000000', NULL, 3, '2018-06-09 06:31:05', '2018-06-09 06:32:52', 'voyager.tutorials.index', 'null');
 
 -- --------------------------------------------------------
 
@@ -425,7 +441,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (48, 'read_news', 'news', '2018-06-08 05:57:48', '2018-06-08 05:57:48'),
 (49, 'edit_news', 'news', '2018-06-08 05:57:48', '2018-06-08 05:57:48'),
 (50, 'add_news', 'news', '2018-06-08 05:57:48', '2018-06-08 05:57:48'),
-(51, 'delete_news', 'news', '2018-06-08 05:57:48', '2018-06-08 05:57:48');
+(51, 'delete_news', 'news', '2018-06-08 05:57:48', '2018-06-08 05:57:48'),
+(52, 'browse_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05'),
+(53, 'read_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05'),
+(54, 'edit_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05'),
+(55, 'add_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05'),
+(56, 'delete_tutorials', 'tutorials', '2018-06-09 06:31:05', '2018-06-09 06:31:05');
 
 -- --------------------------------------------------------
 
@@ -523,7 +544,12 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (50, 1),
 (50, 3),
 (51, 1),
-(51, 3);
+(51, 3),
+(52, 1),
+(53, 1),
+(54, 1),
+(55, 1),
+(56, 1);
 
 -- --------------------------------------------------------
 
@@ -845,13 +871,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -863,7 +889,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -887,7 +913,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `posts`
