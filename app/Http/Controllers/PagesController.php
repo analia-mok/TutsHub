@@ -34,9 +34,17 @@ class PagesController extends Controller {
     // TODO: Switch on page slug
     // TODO: Determine what data to retrieve
     $posts = [];
+    $view = 'pages.page'; // Default view
+    
     switch($slug) {
       case 'news':
         $posts = $this->getNews();
+        break;
+      case 'home':
+        $view = 'pages.home';
+        break;
+      case 'about':
+        $view = 'pages.about';
         break;
     }
 
@@ -45,7 +53,7 @@ class PagesController extends Controller {
       'posts' => $posts,
     ];
 
-    return view('page')->with($data);
+    return view($view)->with($data);
   }
 
   public function about(){
