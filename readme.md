@@ -21,3 +21,12 @@ A coding tutorial website developed with Laravel 5.6 with Laravel Voyager as the
 13. If you would like to continue on with this project and work with the sass files, run `npm install`. Once done, running any of the default yarn commands should work. See the `package.json` for available commands.
 
 Happy dev-ing!
+
+## Extra Commands
+
+`php artisan make:vwidget widget_name model_name` - A quick command for generating the voyager widget boilerplate. Not 100% perfect but does the job. You will have to manually add the widget to your voyager.config file
+
+* widget_name - Name of widget. Can include the 'Dimmer' or 'Widget' prefix. Just note that widget will appear in some of the description text. Easily editable
+* model_name - _Just_ the name of the model. Assumes that model is using the default name space `\App\`.
+* Will be prompted for which voyager icon to use on the widget. Defaults to `voyager-helm`
+* Also will set a default.jpg for the widget's background
