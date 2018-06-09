@@ -40,4 +40,4 @@ Happy dev-ing!
   * Also make responsive
 * Complete Search Functionality
 * Create custom admin edit screens
-* Either adjust current image field or create a custom image field to select images from the media manager, not from the current system's file explorer
+* Create a custom image field to select images from the media manager, not from the current system's file explorer. Feature has not been introduced into core quite yet
