@@ -17,11 +17,25 @@
 
 @section('content')
 @if(count($posts) > 0)
-<ul>
-  @foreach ($posts as $post)
-    <li>{{ $post->title ?? $post->name }}</li>
-  @endforeach
-</ul>
+<div class="page">
+  <ul class="page__post-content">
+    @foreach ($posts as $post)
+    <li class="page__post-content__post">
+      <div class="page__post-content__post__image-wrapper">
+        <img src="storage/{{ $post->image }}" alt="{{ $post->title ?? $post->name }}">
+      </div>
+      <div class="page__post-content__post__content">
+        @if( isset($post->categories)) {{-- && count($post->categories > 0) ) --}}
+          @foreach( $post->categories as $category )
+            <span class="category">{{ $category->name }}</span>
+          @endforeach
+        @endif
+      </div>
+      {{ $post->title ?? $post->name }}
+    </li>
+    @endforeach
+  </ul>
+</div>
 @else
   <strong>Sorry, there are no available posts</strong>
 @endif

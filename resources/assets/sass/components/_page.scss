@@ -1,0 +1,22 @@
+.page {
+  max-width: 100%;
+
+  &__post-content {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+
+    &__post {
+      display: block;
+      flex: 1 1 25%;
+
+      &__image-wrapper {
+        img {
+          display: inline-block;
+          max-width: 480px;
+          height: auto;
+        }
+      }
+    }
+  }
+}

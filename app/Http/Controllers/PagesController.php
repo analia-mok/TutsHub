@@ -30,21 +30,18 @@ class PagesController extends Controller {
       return abort(404);
     }
 
-    // TODO: Switch on page slug
-    // TODO: Determine what data to retrieve
     $posts = [];
     $view = 'pages.page'; // Default view
     
     switch($slug) {
       case 'news':
-        // $posts = $this->getNews();
-        // break;
+        $posts = $this->getNews();
+        break;
       case 'guides':
-        // $posts = $this->getGuides();
-        // break;
+        $posts = $this->getGuides();
+        break;
       case 'tutorials':
-        // $posts = $this->getTutorials();
-        $posts = $this->getModelData($slug);
+        $posts = $this->getTutorials();
         break;
       case 'home':
         $view = 'pages.home';
@@ -73,15 +70,40 @@ class PagesController extends Controller {
   }
 
   /**
-   * Generalized method for grabbing required model data
+   * Retreives published tutorials + pivot data
    *
-   * @param $string $model_table model's corresponding table name
    * @return Array $data
    */
-  public function getModelData($model_table){
-    $data = DB::table($model_table)->where('status', 'PUBLISHED')
-      ->orderBy('updated_at', 'desc')
-      ->paginate(12);
+  public function getTutorials() {
+    $data = \App\Tutorial::where('status', 'PUBLISHED')
+                        ->orderBy('updated_at', 'desc')
+                        ->paginate(12);
+
+    return $data;
+  }
+  
+  /**
+   * Retreives published guides + pivot data
+   *
+   * @return Array $data
+   */
+  public function getGuides() {
+    $data = \App\Guide::where('status', 'PUBLISHED')
+                      ->orderBy('updated_at', 'desc')
+                      ->paginate(12);
+
+    return $data;
+  }
+  
+  /**
+   * Retreives published tutorials + pivot data
+   *
+   * @return Array $data
+   */
+  public function getNews() {
+    $data = \App\News::where('status', 'PUBLISHED')
+                      ->orderBy('updated_at', 'desc')
+                      ->paginate(12);
 
     return $data;
   }
