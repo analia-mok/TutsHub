@@ -32,16 +32,20 @@ class PagesController extends Controller {
 
     $posts = [];
     $view = 'pages.page'; // Default view
+    $slug_base = ''; // Base slug for each item link
     
     switch($slug) {
       case 'news':
         $posts = $this->getNews();
+        $slug_base = $slug;
         break;
       case 'guides':
         $posts = $this->getGuides();
+        $slug_base = $slug;
         break;
       case 'tutorials':
         $posts = $this->getTutorials();
+        $slug_base = $slug;
         break;
       case 'home':
         $view = 'pages.home';
@@ -52,8 +56,9 @@ class PagesController extends Controller {
     }
 
     $data = [
-      'page'  => $page,
-      'posts' => $posts,
+      'page'      => $page,
+      'posts'     => $posts,
+      'slug_base' => $slug_base,
     ];
 
     return view($view)->with($data);

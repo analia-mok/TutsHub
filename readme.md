@@ -1,6 +1,7 @@
 # TutsHub 
 _In Progress_
 A coding tutorial website developed with Laravel 5.6 with Laravel Voyager as the admin.
+Overall, a project to test all things Laravel.
 
 ## Project Setup
 1. Clone or download this repo

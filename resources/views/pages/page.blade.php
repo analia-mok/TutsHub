@@ -22,7 +22,7 @@
     @foreach ($posts as $post)
     <li class="page__post-content__post">
       <div class="page__post-content__post__image-wrapper">
-        <img src="storage/{{ $post->image }}" alt="{{ $post->title ?? $post->name }}">
+        <img src="{{ Voyager::image($post->thumbnail('small')) }}" alt="">
       </div>
       <div class="page__post-content__post__content">
         @if( isset($post->categories)) {{-- && count($post->categories > 0) ) --}}
