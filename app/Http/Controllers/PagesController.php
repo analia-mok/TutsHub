@@ -5,6 +5,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 class PagesController extends Controller {
 
   /**
@@ -35,13 +37,14 @@ class PagesController extends Controller {
     
     switch($slug) {
       case 'news':
-        $posts = $this->getNews();
-        break;
+        // $posts = $this->getNews();
+        // break;
       case 'guides':
-        $posts = $this->getGuides();
-        break;
+        // $posts = $this->getGuides();
+        // break;
       case 'tutorials':
-        $posts = $this->getTutorials();
+        // $posts = $this->getTutorials();
+        $posts = $this->getModelData($slug);
         break;
       case 'home':
         $view = 'pages.home';
@@ -70,40 +73,17 @@ class PagesController extends Controller {
   }
 
   /**
-   * Retrieves all published guides
+   * Generalized method for grabbing required model data
    *
-   * @return Array $guides published guide objects
+   * @param $string $model_table model's corresponding table name
+   * @return Array $data
    */
-  public function getGuides(){
-    $guides = \App\Guide::where('status', 'PUBLISHED')
-                        ->orderBy('updated_at', 'desc')
-                        ->paginate(12);
-    return $guides;
-  }
+  public function getModelData($model_table){
+    $data = DB::table($model_table)->where('status', 'PUBLISHED')
+      ->orderBy('updated_at', 'desc')
+      ->paginate(12);
 
-  /**
-   * Retrieves all published tutorials
-   *
-   * @return Array $tutorials publish tutorial objects
-   */
-  public function getTutorials(){
-    $tutorials = \App\Tutorial::where('status', 'PUBLISHED')
-                        ->orderBy('updated_at', 'desc')
-                        ->paginate(12);
-
-    return $tutorials;
-  }
-
-  /**
-   * Finds latest news objects ordered by updated_at field
-   *
-   * @return View
-   */
-  public function getNews(){
-    $news = \App\News::where('status', 'PUBLISHED')
-                  ->orderBy('updated_at', 'desc')
-                  ->paginate(12);
-    return $news;
+    return $data;
   }
 
 }
