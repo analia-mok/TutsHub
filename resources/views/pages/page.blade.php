@@ -30,11 +30,25 @@
             <span class="category">{{ $category->name }}</span>
           @endforeach
         @endif
+        <h3>{{ $post->title ?? $post->name }}</h3>
+        @if( $post->author )
+          <em>Written by {{ $post->author->name }}</em>
+        @endif
+        <div class="page__post-content__post__content__bottom">
+          @if($post->tutorials)
+            <span class="page__post-content__post__content__bottom__total">{{ count($post->tutorials) }} Tutorials</span>
+          @endif
+          <span class="page__post-content__post__content__bottom__date">
+            @php
+              echo date('M d, Y', strtotime($post->updated_at))
+            @endphp
+          </span>
+        </div>
       </div>
-      {{ $post->title ?? $post->name }}
     </li>
     @endforeach
   </ul>
+  {{ $posts->links() }}
 </div>
 @else
   <strong>Sorry, there are no available posts</strong>
