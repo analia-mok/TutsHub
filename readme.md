@@ -18,7 +18,7 @@ Overall, a project to test all things Laravel.
 12. The default credentials are `admin@admin.com` / `password`
 13. Also provided are `swalsh@gmail.com` / `password` and `kmayer@gmail.com` / `password`, users with a custom `content editor` role
 14. Once logged in, you should get a warning from Voyager about the missing symlink. Click the `fix it` button and the error should go away.
-15. From here, upload the folder structure found in the provided `backups/public.tar.gzip` or `zip` file. Either replace the files found in your `/public/storage/app/public` folder or if that doesn't work, upload the files individually with their original names. (Sadly you will have to manually rename each file). If a user's profile avatar does not appear, go to Users, edit each user and re-assign their profile avatar. Feel free to delete the backups directory once everything is working
+15. From here, upload the folder structure found in the provided `backups/storage.tar.gzip` or `zip` file. Replace the files found in your `public/storage/` folder and your `storage/app/public` folder (Sadly you will have to manually rename each file). If a user's profile avatar does not appear, go to Users, edit each user and re-assign their profile avatar. Feel free to delete the backups directory once everything is working
 13. If you would like to continue on with this project and work with the sass files, run `npm install`. Once done, running any of the default yarn commands should work. See the `package.json` for available commands.
 
 Happy dev-ing!
