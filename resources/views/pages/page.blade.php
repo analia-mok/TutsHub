@@ -55,7 +55,7 @@
               @endif
               <span class="page__post-content__post__content__bottom__date">
                 @php
-                echo date('M d, Y', strtotime($post->updated_at))
+                echo date('M d, Y', strtotime($post->published_date))
                 @endphp
               </span>
             </div>

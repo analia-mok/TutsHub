@@ -81,7 +81,7 @@ class PagesController extends Controller {
    */
   public function getTutorials() {
     $data = \App\Tutorial::where('status', 'PUBLISHED')
-                        ->orderBy('updated_at', 'desc')
+                        ->orderBy('published_date', 'desc')
                         ->paginate(12);
 
     return $data;
@@ -94,7 +94,7 @@ class PagesController extends Controller {
    */
   public function getGuides() {
     $data = \App\Guide::where('status', 'PUBLISHED')
-                      ->orderBy('updated_at', 'desc')
+                      ->orderBy('published_date', 'desc')
                       ->paginate(12);
 
     return $data;
@@ -107,7 +107,7 @@ class PagesController extends Controller {
    */
   public function getNews() {
     $data = \App\News::where('status', 'PUBLISHED')
-                      ->orderBy('updated_at', 'desc')
+                      ->orderBy('published_date', 'desc')
                       ->paginate(12);
 
     return $data;
