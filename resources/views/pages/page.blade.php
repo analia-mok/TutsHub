@@ -25,7 +25,10 @@
 @endsection
 
 @section('content')
-@if(count($posts) > 0)
+@if(!$posts)
+  {{-- Just page content --}}
+  {!! $page->general_content !!}
+@elseif(count($posts) > 0)
 <div class="page">
   <ul class="page__post-content">
     @foreach ($posts as $post)
@@ -66,4 +69,5 @@
 @else
   <strong>Sorry, there are no available posts</strong>
 @endif
+
 @endsection

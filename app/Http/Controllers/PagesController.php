@@ -30,7 +30,7 @@ class PagesController extends Controller {
       return abort(404);
     }
 
-    $posts = [];
+    $posts = null;
     $view = 'pages.page'; // Default view
     $slug_base = ''; // Base slug for each item link
     
