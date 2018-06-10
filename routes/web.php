@@ -12,6 +12,9 @@
 */
 
 // TODO: Insert More Specific Routes Here
+Route::get('/tutorials/{slug}', 'TutorialsController@index');
+Route::get('/guides/{slug}', 'GuidesController@index');
+Route::get('/news/{slug}', 'NewsController@index');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
