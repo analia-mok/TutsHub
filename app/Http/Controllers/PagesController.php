@@ -5,9 +5,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Page;
-use App\News;
-
 class PagesController extends Controller {
 
   /**
@@ -25,7 +22,7 @@ class PagesController extends Controller {
       $slug = 'home';
     }
 
-    $page = Page::where('slug', $slug)->first();
+    $page = \App\Page::where('slug', $slug)->first();
 
     if($page === null || ($page !== null && $page->status !== "PUBLISHED")){
       return abort(404);
@@ -39,6 +36,12 @@ class PagesController extends Controller {
     switch($slug) {
       case 'news':
         $posts = $this->getNews();
+        break;
+      case 'guides':
+        $posts = $this->getGuides();
+        break;
+      case 'tutorials':
+        $posts = $this->getTutorials();
         break;
       case 'home':
         $view = 'pages.home';
@@ -56,19 +59,39 @@ class PagesController extends Controller {
     return view($view)->with($data);
   }
 
-  public function about(){
+  /**
+   * Retrieves all data related to the about page
+   *
+   * @return Array $data - All variables expected by the about page view
+   */
+  public function getAbouPageData(){
     // TODO
-    return;
+    return [];
   }
 
-  public function guides(){
-    // TODO
-    return;
+  /**
+   * Retrieves all published guides
+   *
+   * @return Array $guides published guide objects
+   */
+  public function getGuides(){
+    $guides = \App\Guide::where('status', 'PUBLISHED')
+                        ->orderBy('updated_at', 'desc')
+                        ->paginate(12);
+    return $guides;
   }
 
-  public function tutorials(){
-    // TODO
-    return;
+  /**
+   * Retrieves all published tutorials
+   *
+   * @return Array $tutorials publish tutorial objects
+   */
+  public function getTutorials(){
+    $tutorials = \App\Tutorial::where('status', 'PUBLISHED')
+                        ->orderBy('updated_at', 'desc')
+                        ->paginate(12);
+
+    return $tutorials;
   }
 
   /**
@@ -77,7 +100,7 @@ class PagesController extends Controller {
    * @return View
    */
   public function getNews(){
-    $news = News::where('status', 'PUBLISHED')
+    $news = \App\News::where('status', 'PUBLISHED')
                   ->orderBy('updated_at', 'desc')
                   ->paginate(12);
     return $news;

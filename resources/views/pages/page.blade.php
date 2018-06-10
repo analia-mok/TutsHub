@@ -19,7 +19,7 @@
 @if(count($posts) > 0)
 <ul>
   @foreach ($posts as $post)
-    <li>{{ $post->title }}</li>
+    <li>{{ $post->title ?? $post->name }}</li>
   @endforeach
 </ul>
 @else
