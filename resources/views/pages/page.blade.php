@@ -1,5 +1,14 @@
 @extends('layouts.default')
 
+@section('meta_data')
+<meta name="title" description="{{ $page->meta_title }}">
+<meta name="description" description="{{ $page->meta_description }}">
+@endsection
+
+@section('page_title')
+{{ $page->title }}&nbsp;|
+@endsection
+
 @section('header')
 
 @if($page->slug === 'home')

@@ -42,3 +42,4 @@ Happy dev-ing!
 * Complete Search Functionality
 * Create custom admin edit screens
 * Create a custom image field to select images from the media manager, not from the current system's file explorer. Feature has not been introduced into core quite yet
+* Change color picker field to use jQuery's color picker instead of the native system's

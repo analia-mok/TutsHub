@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ setting('site.title') }}</title>
+  @yield('meta_data')
+  <title>@yield('page_title'){{ setting('site.title') }}</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato%7CRoboto+Slab" rel="stylesheet">
@@ -18,6 +19,7 @@
     <main>
       @yield('content')
     </main>
+    @include('partials/footer')
   </div>
 </body>
 </html>

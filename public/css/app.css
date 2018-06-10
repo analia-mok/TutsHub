@@ -142,6 +142,64 @@ main {
   font-size: 2.1rem;
 }
 
+footer {
+  padding: 1rem 0;
+  background-color: #00C9B6;
+}
+
+footer ul {
+  display: inline-block;
+  padding: 0;
+  list-style-type: none;
+}
+
+footer ul li {
+  display: inline-block;
+  position: relative;
+}
+
+footer ul li:not(:last-child) {
+  padding-right: 1rem;
+  margin-right: 0.5rem;
+}
+
+footer ul li:not(:last-child):after {
+  content: "";
+  display: inline-block;
+  background-color: #EFEFEF;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 2px;
+}
+
+footer ul li a {
+  display: block;
+  color: #EFEFEF;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.footer__inner-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.footer__right-content {
+  display: inline-block;
+  margin-left: auto;
+  color: #EFEFEF;
+}
+
+.footer__right-content span {
+  display: block;
+  line-height: 3rem;
+}
+
 .page {
   max-width: 100%;
 }
