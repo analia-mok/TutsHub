@@ -39,8 +39,16 @@ footer {
 .footer {
   &__inner-wrapper {
     display: flex;
-    width: 75%;
+    width: 90%;
     margin: 0 auto;
+    
+    @media screen and (min-width: $tablet) {
+      width: 80%;
+    }
+  
+    @media screen and (min-width: $desktop) {
+      width: 75%;
+    }
   }
 
   &__right-content {

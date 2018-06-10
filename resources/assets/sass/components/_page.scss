@@ -10,11 +10,21 @@
 
     &__post {
       display: block;
-      flex: 1 1 20%;
-      max-width: 25%;
-      margin: 0 1rem 1rem;
+      flex: 1 1 100%;
+      margin-bottom: 2rem;
       background-color: $off-white;
       box-shadow: 0 4px 10px rgba(0, 0, 0, .16);
+
+      @media screen and (min-width: $tablet){
+        flex: 1 1 40%;
+        max-width: 50%;
+        margin: 0 1rem 2rem;
+      }
+      
+      @media screen and (min-width: $desktop){
+        flex: 1 1 20%;
+        max-width: 25%;
+      }
       
       &__image-wrapper {
         img {

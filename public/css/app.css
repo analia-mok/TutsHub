@@ -38,8 +38,20 @@ p {
 
 main {
   padding: 3rem 0;
-  width: 75%;
+  width: 90%;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    width: 75%;
+  }
 }
 
 #app {
@@ -75,10 +87,22 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 100px;
-  width: 40%;
   text-align: center;
   color: #EFEFEF;
-  height: 40vh;
+}
+
+@media screen and (min-width: 768px) {
+  .header__content {
+    width: 80%;
+    height: 30vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header__content {
+    width: 40%;
+    height: 40vh;
+  }
 }
 
 .header__content h2 {
@@ -186,8 +210,20 @@ footer ul li a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 75%;
+  width: 90%;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__inner-wrapper {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer__inner-wrapper {
+    width: 75%;
+  }
 }
 
 .footer__right-content {
@@ -221,13 +257,31 @@ footer ul li a {
 .page__post-content__post {
   display: block;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 20%;
-          flex: 1 1 20%;
-  max-width: 25%;
-  margin: 0 1rem 1rem;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  margin-bottom: 2rem;
   background-color: #EFEFEF;
   -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
+@media screen and (min-width: 768px) {
+  .page__post-content__post {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40%;
+            flex: 1 1 40%;
+    max-width: 50%;
+    margin: 0 1rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .page__post-content__post {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 20%;
+            flex: 1 1 20%;
+    max-width: 25%;
+  }
 }
 
 .page__post-content__post__image-wrapper img {
