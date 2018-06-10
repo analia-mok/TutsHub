@@ -31,29 +31,33 @@
     @foreach ($posts as $post)
     <li class="page__post-content__post">
       <div class="page__post-content__post__image-wrapper">
-        <img src="{{ Voyager::image($post->thumbnail('small')) }}" alt="">
+        <a href="/{{ $slug_base }}/{{ $post->slug }}">
+          <img src="{{ Voyager::image($post->thumbnail('small')) }}" alt="{{ $post->title ?? $post->name }}">
+        </a>
       </div>
-      <div class="page__post-content__post__content">
-        @if( isset($post->categories)) {{-- && count($post->categories > 0) ) --}}
-          @foreach( $post->categories as $category )
-            <span class="category">{{ $category->name }}</span>
-          @endforeach
-        @endif
-        <h3>{{ $post->title ?? $post->name }}</h3>
-        @if( $post->author )
-          <em>Written by {{ $post->author->name }}</em>
-        @endif
-        <div class="page__post-content__post__content__bottom">
-          @if($post->tutorials)
-            <span class="page__post-content__post__content__bottom__total">{{ count($post->tutorials) }} Tutorials</span>
+      <a href="/{{ $slug_base }}/{{ $post->slug }}">
+        <div class="page__post-content__post__content">
+          @if( isset($post->categories))
+            @foreach( $post->categories as $category )
+              <span class="category">{{ $category->name }}</span>
+            @endforeach
           @endif
-          <span class="page__post-content__post__content__bottom__date">
-            @php
+          <h3>{{ $post->title ?? $post->name }}</h3>
+          @if( $post->author )
+            <em>Written by {{ $post->author->name }}</em>
+          @endif
+          <div class="page__post-content__post__content__bottom">
+            @if($post->tutorials)
+            <span class="page__post-content__post__content__bottom__total">{{ count($post->tutorials) }} Tutorials</span>
+            @endif
+            <span class="page__post-content__post__content__bottom__date">
+              @php
               echo date('M d, Y', strtotime($post->updated_at))
-            @endphp
-          </span>
+              @endphp
+            </span>
+          </div>
         </div>
-      </div>
+      </a>
     </li>
     @endforeach
   </ul>

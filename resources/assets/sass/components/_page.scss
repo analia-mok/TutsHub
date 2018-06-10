@@ -14,7 +14,8 @@
       max-width: 25%;
       margin: 0 1rem 1rem;
       background-color: $off-white;
-
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .16);
+      
       &__image-wrapper {
         img {
           display: inline-block;
@@ -23,6 +24,12 @@
         }
       }
 
+      & > a{
+        display: block;
+        color: $slate-grey;
+        text-decoration: none;
+      }
+      
       &__content {
         padding: 1rem;
         color: $slate-grey;
@@ -31,6 +38,7 @@
           font-size: 1.1rem;
           font-weight: 500;
         }
+        
         h3{
           padding: 0.5rem 0 0;
           font-size: 1.3rem;
