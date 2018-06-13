@@ -75,7 +75,35 @@ module.exports = __webpack_require__(2);
 /* 1 */
 /***/ (function(module, exports) {
 
+(function () {
+  var menuIcon = void 0;
+  var accordion = void 0;
 
+  window.onload = init;
+
+  function init() {
+    menuIcon = document.getElementById('menuIcon');
+    menuIcon.addEventListener('click', toggleNav);
+
+    accordion = document.querySelector('.nav__accordion');
+  }
+
+  function toggleNav() {
+    var closeClass = 'nav__accordion--close';
+    var openClass = 'nav__accordion--open';
+
+    if (accordion.classList.contains(closeClass)) {
+      accordion.classList.remove(closeClass);
+      accordion.classList.add(openClass);
+    } else {
+      accordion.classList.remove(openClass);
+      accordion.classList.add(closeClass);
+    }
+    console.log(accordion.classList);
+  }
+
+  return {};
+})();
 
 /***/ }),
 /* 2 */

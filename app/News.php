@@ -8,5 +8,9 @@ use TCG\Voyager\Traits\Resizable;
 class News extends Model
 {
   use Resizable;
+
+  public function author(){
+    return $this->belongsTo(User::class);
+  }
     
 }
