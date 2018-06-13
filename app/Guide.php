@@ -11,14 +11,14 @@ class Guide extends Model
   use Resizable;
   
   public function author(){
-    return $this->belongsTo('App\User');
+    return $this->belongsTo(User::class);
   }
 
   public function tutorials() {
-    return $this->hasMany('App\Tutorial');
+    return $this->hasMany(Tutorial::class);
   }
   
   public function categories() {
-    return $this->belongsToMany('App\Category', 'guide_category');
+    return $this->belongsToMany(Category::class, 'guide_category');
   }
 }

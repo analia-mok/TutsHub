@@ -10,10 +10,10 @@ class Tutorial extends Model
   use Resizable;
   
   public function author(){
-    return $this->belongsTo('App\User');
+    return $this->belongsTo(User::class);
   }
 
   public function categories() {
-    return $this->belongsToMany('App\Category', 'tutorial_category');
+    return $this->belongsToMany(Category::class, 'tutorial_category');
   }
 }
