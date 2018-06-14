@@ -70,39 +70,20 @@
 
                   @php
                       $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
-                      $exclude = ['title', 'slug', 'published_date', 'created_at', 'meta_title', 'meta_description'];
+                      $include = ['content'];
+                      $used = 0;
                   @endphp
 
                   @foreach($dataTypeRows as $row)
-                    @include('partials.formfieldresolver', [ 'row' => $row, 'exclude' => $exclude ])
-                    {{-- @if(!in_array($row->field, $exclude))
-                      <!-- GET THE DISPLAY OPTIONS -->
-                      @php
-                        $options = json_decode($row->details);
-                        $display_options = isset($options->display) ? $options->display : NULL;
+                    @if(in_array($row->field, $include))
+                      @include('partials.formfieldresolver', [ 'row' => $row ])
+                      @php 
+                        $used++; 
+                        if($used === count($include)){
+                          break;
+                        }
                       @endphp
-                      @if ($options && isset($options->legend) && isset($options->legend->text))
-                        <legend class="text-{{$options->legend->align or 'center'}}" style="background-color: {{$options->legend->bgcolor or '#f0f0f0'}};padding: 5px;">{{$options->legend->text}}</legend>
-                      @endif
-                      @if ($options && isset($options->formfields_custom))
-                        @include('voyager::formfields.custom.' . $options->formfields_custom)
-                      @else
-                        <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width or 12 }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                          {{ $row->slugify }}
-                          <label for="name">{{ $row->display_name }}</label>
-                          @include('voyager::multilingual.input-hidden-bread-edit-add')
-                          @if($row->type == 'relationship')
-                            @include('voyager::formfields.relationship')
-                          @else
-                            {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
-                          @endif
-
-                          @foreach (app('voyager')->afterFormFields($row, $dataType, $dataTypeContent) as $after)
-                            {!! $after->handle($row, $dataType, $dataTypeContent) !!}
-                          @endforeach
-                        </div>
-                      @endif
-                    @endif --}}
+                    @endif
                   @endforeach
 
               </div><!-- panel-body -->
@@ -128,15 +109,23 @@
                 <label for="created_at">Created At</label>
                 <input type="datetime" class="form-control date_picker" id="created_at" name="created_at" placeholder="Created At" value="@if(isset($dataTypeContent->created_at)){{ $dataTypeContent->created_at }}@endif" />
               </div>
-              <div class="form-group">
-                <label for="status">Status</label>
-                <!-- Attempt to create dynamically -->
-              </div>
-              <div class="form-group">
-                <label for="author">Author</label>
-                <!-- Attempt to create dynamically -->
-                
-              </div>
+              @php
+                $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
+                $include = ['status', 'news_belongsto_user_relationship'];
+                $used = 0;
+              @endphp
+
+              @foreach($dataTypeRows as $row)
+                @if(in_array($row->field, $include))
+                  @include('partials.formfieldresolver', [ 'row' => $row ])
+                  @php 
+                    $used++; 
+                    if($used === count($include)){
+                      break;
+                    }
+                  @endphp
+                @endif
+              @endforeach
             </div>
           </div>
           <!-- End of General Item Settings -->
