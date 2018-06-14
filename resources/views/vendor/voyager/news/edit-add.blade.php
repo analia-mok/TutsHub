@@ -22,7 +22,7 @@
       method="POST" enctype="multipart/form-data">
       <!-- PUT Method if we are editing -->
       @if(!is_null($dataTypeContent->getKey()))
-          {{ method_field("PUT") }}
+        {{ method_field("PUT") }}
       @endif
       
       <!-- CSRF TOKEN -->
@@ -45,8 +45,8 @@
                 <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif"/>
               </div>
               <div class="form-group">
-                  <label for="slug">Slug</label>
-                  <input type="text" class="form-control" id="slug" name="slug"
+                <label for="slug">Slug</label>
+                <input type="text" class="form-control" id="slug" name="slug"
                       placeholder="slug"
                       {{!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}}
                       value="@if(isset($dataTypeContent->slug)){{ $dataTypeContent->slug }}@endif">
@@ -74,42 +74,42 @@
                   @endphp
 
                   @foreach($dataTypeRows as $row)
-                      @if(!in_array($row->field, $exclude))
-                          <!-- GET THE DISPLAY OPTIONS -->
-                          @php
-                              $options = json_decode($row->details);
-                              $display_options = isset($options->display) ? $options->display : NULL;
-                          @endphp
-                          @if ($options && isset($options->legend) && isset($options->legend->text))
-                              <legend class="text-{{$options->legend->align or 'center'}}" style="background-color: {{$options->legend->bgcolor or '#f0f0f0'}};padding: 5px;">{{$options->legend->text}}</legend>
-                          @endif
-                          @if ($options && isset($options->formfields_custom))
-                              @include('voyager::formfields.custom.' . $options->formfields_custom)
-                          @else
-                              <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width or 12 }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                  {{ $row->slugify }}
-                                  <label for="name">{{ $row->display_name }}</label>
-                                  @include('voyager::multilingual.input-hidden-bread-edit-add')
-                                  @if($row->type == 'relationship')
-                                      @include('voyager::formfields.relationship')
-                                  @else
-                                      {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
-                                  @endif
-
-                                  @foreach (app('voyager')->afterFormFields($row, $dataType, $dataTypeContent) as $after)
-                                      {!! $after->handle($row, $dataType, $dataTypeContent) !!}
-                                  @endforeach
-                              </div>
-                          @endif
+                    @include('partials.formfieldresolver', [ 'row' => $row, 'exclude' => $exclude ])
+                    {{-- @if(!in_array($row->field, $exclude))
+                      <!-- GET THE DISPLAY OPTIONS -->
+                      @php
+                        $options = json_decode($row->details);
+                        $display_options = isset($options->display) ? $options->display : NULL;
+                      @endphp
+                      @if ($options && isset($options->legend) && isset($options->legend->text))
+                        <legend class="text-{{$options->legend->align or 'center'}}" style="background-color: {{$options->legend->bgcolor or '#f0f0f0'}};padding: 5px;">{{$options->legend->text}}</legend>
                       @endif
+                      @if ($options && isset($options->formfields_custom))
+                        @include('voyager::formfields.custom.' . $options->formfields_custom)
+                      @else
+                        <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width or 12 }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                          {{ $row->slugify }}
+                          <label for="name">{{ $row->display_name }}</label>
+                          @include('voyager::multilingual.input-hidden-bread-edit-add')
+                          @if($row->type == 'relationship')
+                            @include('voyager::formfields.relationship')
+                          @else
+                            {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
+                          @endif
+
+                          @foreach (app('voyager')->afterFormFields($row, $dataType, $dataTypeContent) as $after)
+                            {!! $after->handle($row, $dataType, $dataTypeContent) !!}
+                          @endforeach
+                        </div>
+                      @endif
+                    @endif --}}
                   @endforeach
 
               </div><!-- panel-body -->
 
               <div class="panel-footer">
                   <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
-              </div>
-              
+              </div>              
           </div>
         </div>
         <div class="col-md-4">
@@ -132,8 +132,14 @@
                 <label for="status">Status</label>
                 <!-- Attempt to create dynamically -->
               </div>
+              <div class="form-group">
+                <label for="author">Author</label>
+                <!-- Attempt to create dynamically -->
+                
+              </div>
             </div>
           </div>
+          <!-- End of General Item Settings -->
           <!-- Meta Data Settings -->
           <div class="panel panel-bordered panel-primary">
             <div class="panel-heading">
@@ -150,6 +156,7 @@
                 <textarea name="meta_description" id="meta_description" rows="10" class="form-control">@if(isset($dataTypeContent->meta_description)){{ $dataTypeContent->meta_description }}@endif</textarea>
               </div>
             </div>
+            <!-- End of Meta Data Settings -->
           </div>
         </div>
       </div>
