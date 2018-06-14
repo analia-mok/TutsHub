@@ -2,6 +2,13 @@
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <style>
+      .form-group{ padding: 0; }
+      .meta_data .mce-tinymce .mce-edit-area{
+        height: 20rem;
+        overflow: scroll;
+      }
+    </style>
 @stop
 
 @section('page_title', __('voyager::generic.'.(!is_null($dataTypeContent->getKey()) ? 'edit' : 'add')).' '.$dataType->display_name_singular)
@@ -110,7 +117,6 @@
                 <input type="datetime" class="form-control date_picker" id="created_at" name="created_at" placeholder="Created At" value="@if(isset($dataTypeContent->created_at)){{ $dataTypeContent->created_at }}@endif" />
               </div>
               @php
-                $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
                 $include = ['status', 'news_belongsto_user_relationship'];
                 $used = 0;
               @endphp
@@ -135,15 +141,23 @@
               <h3 class="panel-title">Meta Data</h3>
               <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
             </div>
-            <div class="panel-body">
-              <div class="form-group">
-                <label for="meta_title">Meta Title</label>
-                <input type="text" class="form-control" id="meta_title" name="meta_title" placeholder="Meta Title" value="@if(isset($dataTypeContent->meta_title)){{ $dataTypeContent->meta_title }}@endif" />
-              </div>
-              <div class="form-group">
-                <label for="meta_description">Meta Description</label>
-                <textarea name="meta_description" id="meta_description" rows="10" class="form-control">@if(isset($dataTypeContent->meta_description)){{ $dataTypeContent->meta_description }}@endif</textarea>
-              </div>
+            <div class="panel-body meta_data">
+              @php
+                $include = ['meta_title', 'meta_description'];
+                $used = 0;
+              @endphp
+
+              @foreach($dataTypeRows as $row)
+                @if(in_array($row->field, $include))
+                  @include('partials.formfieldresolver', [ 'row' => $row ])
+                  @php 
+                    $used++; 
+                    if($used === count($include)){
+                      break;
+                    }
+                  @endphp
+                @endif
+              @endforeach
             </div>
             <!-- End of Meta Data Settings -->
           </div>
@@ -245,5 +259,6 @@
             });
             $('[data-toggle="tooltip"]').tooltip();
         });
+
     </script>
 @stop
