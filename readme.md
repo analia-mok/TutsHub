@@ -45,3 +45,19 @@ Happy dev-ing!
 * Create a custom image field to select images from the media manager, not from the current system's file explorer. Feature has not been introduced into core quite yet
 * Change color picker field to use jQuery's color picker instead of the native system's
 * Add Datetime picker
+
+## Things that I picked up while working with voyager
+
+### Overriding Admin Pages
+* Layout to extend: `voyager::master`
+* Available sections:
+  * `page_title` - accepts one argument to use for page title
+  * `css` - special form styling
+  * `page_header` - where page title should go
+  * `content` - where your form will go
+  * `javascript` - for special form field logic such as slugify and date time pickers
+* Values / Variables Available to You:
+  * `$dataTypeContent` - How you grab your form field data
+  * `$dataType` - (possibly) - name of your content type / model
+    * Proper way to retrieve your field "rows", 
+      * `$dataTypeRows = $dataType->{(isset($dataTypeContent->id) ? 'editRows' : 'addRows' )};`
