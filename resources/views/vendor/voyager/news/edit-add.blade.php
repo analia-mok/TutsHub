@@ -41,27 +41,36 @@
               </div>
             </div>
             <div class="panel-body">
-              <input type="text" class="form-control" id="title" name="title" placeholder="title" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif"/>
+              <div class="form-group">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif"/>
+              </div>
+              <div class="form-group">
+                  <label for="slug">Slug</label>
+                  <input type="text" class="form-control" id="slug" name="slug"
+                      placeholder="slug"
+                      {{!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}}
+                      value="@if(isset($dataTypeContent->slug)){{ $dataTypeContent->slug }}@endif">
+              </div>
             </div>
           </div>
           <div class="panel">
-
+            <div class="panel-heading">
+              <h3 class="panel-title">Post Content</h3>
+            </div>
               <div class="panel-body">
-
                   @if (count($errors) > 0)
-                      <div class="alert alert-danger">
-                          <ul>
-                              @foreach ($errors->all() as $error)
-                                  <li>{{ $error }}</li>
-                              @endforeach
-                          </ul>
-                      </div>
+                    <div class="alert alert-danger">
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
                   @endif
 
-                  <!-- Adding / Editing -->
                   @php
                       $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
-                      $exclude = ['title'];
+                      $exclude = ['title', 'slug', 'published_date', 'created_at', 'meta_title', 'meta_description'];
                   @endphp
 
                   @foreach($dataTypeRows as $row)
@@ -101,6 +110,48 @@
                   <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
               </div>
               
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!-- General Item Settings -->
+          <div class="panel panel panel-bordered panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">News Settings</h3>
+              <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label for="published_date">Published Date</label>
+                <input type="datetime" class="form-control date_picker" id="published_date" name="published_date" placeholder="Published Date" value="@if(isset($dataTypeContent->published_date)){{ $dataTypeContent->published_date }}@endif" />
+              </div>
+              <div class="form-group">
+                <label for="created_at">Created At</label>
+                <input type="datetime" class="form-control date_picker" id="created_at" name="created_at" placeholder="Created At" value="@if(isset($dataTypeContent->created_at)){{ $dataTypeContent->created_at }}@endif" />
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                
+              </div>
+            </div>
+          </div>
+          <!-- Meta Data Settings -->
+          <div class="panel panel-bordered panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Meta Data</h3>
+              <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label for="meta_title">Meta Title</label>
+                <input type="text" class="form-control" id="meta_title" name="meta_title" placeholder="Meta Title" value="@if(isset($dataTypeContent->meta_title)){{ $dataTypeContent->meta_title }}@endif" />
+              </div>
+              <div class="form-group">
+                <label for="meta_description">Meta Description</label>
+                <textarea name="meta_description" id="meta_description" rows="10" class="form-control">
+                    @if(isset($dataTypeContent->meta_description)){{ $dataTypeContent->meta_description }}@endif
+                </textarea>
+              </div>
+            </div>
           </div>
         </div>
       </div>
