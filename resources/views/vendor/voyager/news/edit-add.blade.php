@@ -130,7 +130,7 @@
               </div>
               <div class="form-group">
                 <label for="status">Status</label>
-                
+                <!-- Attempt to create dynamically -->
               </div>
             </div>
           </div>
@@ -147,9 +147,7 @@
               </div>
               <div class="form-group">
                 <label for="meta_description">Meta Description</label>
-                <textarea name="meta_description" id="meta_description" rows="10" class="form-control">
-                    @if(isset($dataTypeContent->meta_description)){{ $dataTypeContent->meta_description }}@endif
-                </textarea>
+                <textarea name="meta_description" id="meta_description" rows="10" class="form-control">@if(isset($dataTypeContent->meta_description)){{ $dataTypeContent->meta_description }}@endif</textarea>
               </div>
             </div>
           </div>
