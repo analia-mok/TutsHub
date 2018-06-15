@@ -36,28 +36,8 @@ Happy dev-ing!
 * Will be prompted for which voyager icon to use on the widget. Defaults to `voyager-helm`
 * Also will set a default.jpg for the widget's background
 
-## Todos
-* Finish front-end views
-  * Also make responsive
-* Complete Search Functionality
-* Create custom admin edit screens
-* Create a custom drag-n-drop field to help add and order tutorials within a guide's edit screen
-* Create a custom image field to select images from the media manager, not from the current system's file explorer. Feature has not been introduced into core quite yet
-* Change color picker field to use jQuery's color picker instead of the native system's
-* Add Datetime picker
+__Read More__ about this project's roadmap and how to further customize voyager in the [wiki](https://github.com/AnaliaMok/TutsHub.wiki.git)
 
-## Things that I picked up while working with voyager
 
-### Overriding Admin Pages
-* Layout to extend: `voyager::master`
-* Available sections:
-  * `page_title` - accepts one argument to use for page title
-  * `css` - special form styling
-  * `page_header` - where page title should go
-  * `content` - where your form will go
-  * `javascript` - for special form field logic such as slugify and date time pickers
-* Values / Variables Available to You:
-  * `$dataTypeContent` - How you grab your form field data
-  * `$dataType` - (possibly) - name of your content type / model
-    * Proper way to retrieve your field "rows", 
-      * `$dataTypeRows = $dataType->{(isset($dataTypeContent->id) ? 'editRows' : 'addRows' )};`
+### Adding Custom Fields
+* `app('voyager')->addFormField("Namespace\\Class");`
