@@ -69,3 +69,43 @@
     }
   }
 }
+
+.pagination {
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+
+  li {
+    display: inline-block;
+
+    a{
+      text-decoration: none;
+    }
+  }
+
+  .page-item {
+    .page-link{
+      display: block;
+      font-size: 1.5rem;
+      padding: 0.25rem 0.5rem;
+      color: $slate-grey;
+      cursor: pointer;
+
+      &:hover{
+        background-color: $off-white;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .disabled {
+    display: none;
+  }
+  
+  .active {
+    .page-link {
+      color: $dark-turquoise;
+    }
+  }
+
+}
