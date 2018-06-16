@@ -1,4 +1,4 @@
-<!-- GET THE DISPLAY OPTIONS -->
+
 @php
   $options = json_decode($row->details);
   $display_options = isset($options->display) ? $options->display : NULL;

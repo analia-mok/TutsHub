@@ -102,7 +102,7 @@
         </div>
         <div class="col-md-4">
           <!-- General Item Settings -->
-          <div class="panel panel panel-bordered panel-warning">
+          <div class="panel panel panel-bordered panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">News Settings</h3>
               <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
@@ -135,6 +135,31 @@
             </div>
           </div>
           <!-- End of General Item Settings -->
+          <!-- Featured Image Settings -->
+          <div class="panel panel-bordered panel-warning">
+            <div class="panel-heading">
+              <div class="panel-title">Featured Image</div>
+              <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
+            </div>
+            <div class="panel-body">
+              @php
+                $include = ['image'];
+                $used = 0;
+              @endphp
+
+              @foreach($dataTypeRows as $row)
+                @if(in_array($row->field, $include))
+                  @include('partials.formfieldresolver', [ 'row' => $row ])
+                  @php 
+                    $used++; 
+                    if($used === count($include)){
+                      break;
+                    }
+                  @endphp
+                @endif
+              @endforeach
+            </div>
+          </div>
           <!-- Meta Data Settings -->
           <div class="panel panel-bordered panel-primary">
             <div class="panel-heading">
