@@ -76,22 +76,10 @@
                   @endif
 
                   @php
-                      $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
-                      $include = ['content'];
-                      $used = 0;
+                    $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
+                    $include = ['overview', 'content'];
                   @endphp
-
-                  @foreach($dataTypeRows as $row)
-                    @if(in_array($row->field, $include))
-                      @include('partials.formfieldresolver', [ 'row' => $row ])
-                      @php 
-                        $used++; 
-                        if($used === count($include)){
-                          break;
-                        }
-                      @endphp
-                    @endif
-                  @endforeach
+                  @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
 
               </div><!-- panel-body -->
 
@@ -102,9 +90,9 @@
         </div>
         <div class="col-md-4">
           <!-- General Item Settings -->
-          <div class="panel panel panel-bordered panel-warning">
+          <div class="panel panel panel-bordered panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">News Settings</h3>
+              <h3 class="panel-title">Tutorial Settings</h3>
               <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
             </div>
             <div class="panel-body">
@@ -117,24 +105,25 @@
                 <input type="datetime" class="form-control date_picker" id="created_at" name="created_at" placeholder="Created At" value="@if(isset($dataTypeContent->created_at)){{ $dataTypeContent->created_at }}@endif" />
               </div>
               @php
-                $include = ['status', 'news_belongsto_user_relationship'];
-                $used = 0;
+                $include = ['status', 'tutorial_belongsto_user_relationship', 'tutorial_belongstomany_category_relationship', 'tutorial_belongsto_guide_relationship'];
               @endphp
-
-              @foreach($dataTypeRows as $row)
-                @if(in_array($row->field, $include))
-                  @include('partials.formfieldresolver', [ 'row' => $row ])
-                  @php 
-                    $used++; 
-                    if($used === count($include)){
-                      break;
-                    }
-                  @endphp
-                @endif
-              @endforeach
+              @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
           </div>
           <!-- End of General Item Settings -->
+          <!-- Featured Image Settings -->
+          <div class="panel panel-bordered panel-warning">
+            <div class="panel-heading">
+              <div class="panel-title">Featured Image</div>
+              <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
+            </div>
+            <div class="panel-body">
+              @php
+                $include = ['image'];
+              @endphp
+              @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
+            </div>
+          </div>
           <!-- Meta Data Settings -->
           <div class="panel panel-bordered panel-primary">
             <div class="panel-heading">
@@ -144,20 +133,8 @@
             <div class="panel-body meta_data">
               @php
                 $include = ['meta_title', 'meta_description'];
-                $used = 0;
               @endphp
-
-              @foreach($dataTypeRows as $row)
-                @if(in_array($row->field, $include))
-                  @include('partials.formfieldresolver', [ 'row' => $row ])
-                  @php 
-                    $used++; 
-                    if($used === count($include)){
-                      break;
-                    }
-                  @endphp
-                @endif
-              @endforeach
+              @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
             <!-- End of Meta Data Settings -->
           </div>
