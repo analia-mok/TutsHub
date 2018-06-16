@@ -27,6 +27,10 @@ Happy dev-ing!
 * Widgets can be found at `app/Widgets`
 * Widget images are stored in `public/images`
 
+## Provided Seeders and Corresponding Factories
+* `MyUsersSeeder` - Creates 50 random instances of the `TCG\Voyager\Models\User`
+* `UserFactory` - In addition to defining a new User instance, the factory will also write to a new `seeded_users.txt` file so that you may log in with any of the newly created users. This file should remain in the `.gitignore` file.
+
 ## Extra Commands
 
 `php artisan make:vwidget widget_name model_name` - A quick command for generating the voyager widget boilerplate. Not 100% perfect but does the job. You will have to manually add the widget to your voyager.config file
@@ -37,7 +41,3 @@ Happy dev-ing!
 * Also will set a default.jpg for the widget's background
 
 __Read More__ about this project's roadmap and how to further customize voyager in the [wiki](https://github.com/AnaliaMok/TutsHub.wiki.git)
-
-
-### Adding Custom Fields
-* `app('voyager')->addFormField("Namespace\\Class");`
