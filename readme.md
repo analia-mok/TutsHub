@@ -23,6 +23,9 @@ Overall, a project to test all things Laravel.
 
 Happy dev-ing!
 
+## Disclaimer
+* If you use a password management extension (like Last Pass) on your development environment, you may find issues when trying to edit users. Personally, I've faced errors with duplicate emails because LastPass autofills the email edit field. So, either disable lastpass for your local site or use a browser that doesn't have LastPass installed.
+
 ## Project Structure (Work In Progress)
 * Widgets can be found at `app/Widgets`
 * Widget images are stored in `public/images`
