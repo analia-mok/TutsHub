@@ -77,7 +77,11 @@
 
                   @php
                     $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
+                    // Accumulator to check if any extra fields are not handled
+                    // Initial contains all fields created manually
+                    $used_fields = [ 'title', 'slug', 'published_date', 'created_at' ];
                     $include = ['overview', 'content'];
+                    $used_fields = array_merge($used_fields, $include);
                   @endphp
                   @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
 
@@ -106,6 +110,7 @@
               </div>
               @php
                 $include = ['status', 'tutorial_belongsto_user_relationship', 'tutorial_belongstomany_category_relationship', 'tutorial_belongsto_guide_relationship'];
+                $used_fields = array_merge($used_fields, $include);
               @endphp
               @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
@@ -120,6 +125,7 @@
             <div class="panel-body">
               @php
                 $include = ['image'];
+                $used_fields = array_merge($used_fields, $include);
               @endphp
               @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
@@ -133,11 +139,25 @@
             <div class="panel-body meta_data">
               @php
                 $include = ['meta_title', 'meta_description'];
+                $used_fields = array_merge($used_fields, $include);
               @endphp
               @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
             <!-- End of Meta Data Settings -->
           </div>
+          <!-- Extra Fields -->
+          <div class="panel panel-bordered panel-warning">
+            <div class="panel-heading">
+              <div class="panel-title">Extra Fields</div>
+              <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
+            </div>
+            <div class="panel-body">
+              @php $include = null; @endphp
+              <em>Fields added after the creation of this edit screen</em>
+              @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'exclude' => $used_fields ])
+            </div>
+          </div>
+          <!-- End of extra fields -->
         </div>
       </div>
     </form>

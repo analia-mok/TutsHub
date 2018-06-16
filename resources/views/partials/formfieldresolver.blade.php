@@ -3,7 +3,7 @@ $used = 0;
 @endphp
 
 @foreach($dataTypeRows as $row)
-  @if(in_array($row->field, $include))
+  @if(  ( isset($include) && in_array($row->field, $include)) || ( isset($exclude) && !in_array($row->field, $exclude) ) )
 
     @php
       $options = json_decode($row->details);
@@ -33,11 +33,13 @@ $used = 0;
     @endif
 
     @php 
-      $used++; 
-      if($used === count($include)){
-        break;
+      if(isset($include)){
+        $used++; 
+        if( $used === count($include)){
+          break;
+        }
       }
     @endphp
-    
+
   @endif
 @endforeach
