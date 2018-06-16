@@ -13,11 +13,25 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(TCG\Voyager\Models\User::class, function (Faker $faker) {
+
+    $user_password_log = fopen('seeded_users.txt', 'a') or die('Unable to open file');
+    
+    $password = str_random(10);
+    $user_name = $faker->name;
+    $user_email = $faker->unique()->safeEmail;
+
+    $entry = $user_name . "\t" . $user_email . "\t" . $password . "\n";
+    fwrite($user_password_log, $entry);
+
+    fclose($user_password_log);
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+        'name' => $user_name,
+        'email' => $user_email,
+        'avatar' => 'users/default.png',
+        'password' => bcrypt($password), // secret
+        'remember_token' => str_random(60),
+        'role_id'  => rand(2, 3), // Choose between a normal user and a content editor
     ];
 });
