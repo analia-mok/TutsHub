@@ -345,15 +345,16 @@ footer ul li a {
             flex: 1 1 40%;
     max-width: 50%;
     margin: 0 1rem 2rem;
+    max-width: calc(100% * (1/2) - 32px);
   }
 }
 
 @media screen and (min-width: 1024px) {
   .page__post-content__post {
     -webkit-box-flex: 1;
-        -ms-flex: 1 1 20%;
-            flex: 1 1 20%;
-    max-width: 25%;
+        -ms-flex: 1 0 20%;
+            flex: 1 0 20%;
+    max-width: calc(100% * (1/4) - 32px);
   }
 }
 
