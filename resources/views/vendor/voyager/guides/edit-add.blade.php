@@ -41,7 +41,7 @@
           <div class="panel">
             <div class="panel-heading">
               <h3 class="panel-title">
-                <span class="panel-desc">Title</span>
+                <span class="panel-desc">Guide Name</span>
               </h3>
               <div class="panel-actions">
                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
@@ -49,7 +49,7 @@
             </div>
             <div class="panel-body">
               <div class="form-group">
-                <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="@if(isset($dataTypeContent->title)){{ $dataTypeContent->title }}@endif"/>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="@if(isset($dataTypeContent->name)){{ $dataTypeContent->name }}@endif"/>
               </div>
               <div class="form-group">
                 <label for="slug">Slug</label>
@@ -77,7 +77,11 @@
 
                   @php
                     $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
-                    $include = ['content'];
+                    // Accumulator to check if any extra fields are not handled
+                    // Initial contains all fields created manually
+                    $used_fields = [ 'name', 'slug', 'published_date', 'created_at' ];
+                    $include = ['overview', 'guide_hasmany_tutorial_relationship'];
+                    $used_fields = array_merge($used_fields, $include);
                   @endphp
                   @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
 
@@ -92,7 +96,7 @@
           <!-- General Item Settings -->
           <div class="panel panel panel-bordered panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">News Settings</h3>
+              <h3 class="panel-title">Guide Settings</h3>
               <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
             </div>
             <div class="panel-body">
@@ -105,7 +109,8 @@
                 <input type="datetime" class="form-control date_picker" id="created_at" name="created_at" placeholder="Created At" value="@if(isset($dataTypeContent->created_at)){{ $dataTypeContent->created_at }}@endif" />
               </div>
               @php
-                $include = ['status', 'news_belongsto_user_relationship'];
+                $include = ['status', 'guide_belongsto_user_relationship', 'guide_belongstomany_category_relationship', ];
+                $used_fields = array_merge($used_fields, $include);
               @endphp
               @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
@@ -120,6 +125,7 @@
             <div class="panel-body">
               @php
                 $include = ['image'];
+                $used_fields = array_merge($used_fields, $include);
               @endphp
               @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
@@ -133,11 +139,25 @@
             <div class="panel-body meta_data">
               @php
                 $include = ['meta_title', 'meta_description'];
+                $used_fields = array_merge($used_fields, $include);
               @endphp
               @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
             <!-- End of Meta Data Settings -->
           </div>
+          <!-- Extra Fields -->
+          <div class="panel panel-bordered panel-warning">
+            <div class="panel-heading">
+              <div class="panel-title">Extra Fields</div>
+              <div class="panel-actions"><a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a></div>
+            </div>
+            <div class="panel-body">
+              @php $include = null; @endphp
+              <em>Fields added after the creation of this edit screen</em>
+              @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'exclude' => $used_fields ])
+            </div>
+          </div>
+          <!-- End of extra fields -->
         </div>
       </div>
     </form>
