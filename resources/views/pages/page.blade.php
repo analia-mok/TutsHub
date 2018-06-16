@@ -35,7 +35,15 @@
       <li class="page__post-content__post">
         <div class="page__post-content__post__image-wrapper">
           <a href="/{{ $slug_base }}/{{ $post->slug }}">
-            <img src="{{ Voyager::image($post->thumbnail('small')) }}" alt="{{ $post->title ?? $post->name }}">
+            @php
+              $src = $post->image;
+              $is_https = preg_match('/^https?:\/\//', $src);
+            @endphp
+            @if($is_https)
+            <img src="{{ $post->image }}" alt="{{ $post->title ?? $post->name }}">
+            @else
+              <img src="{{ Voyager::image($post->thumbnail('small')) }}" alt="{{ $post->title ?? $post->name }}">
+            @endif
           </a>
         </div>
         <a href="/{{ $slug_base }}/{{ $post->slug }}">
