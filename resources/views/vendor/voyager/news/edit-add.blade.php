@@ -76,22 +76,10 @@
                   @endif
 
                   @php
-                      $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
-                      $include = ['content'];
-                      $used = 0;
+                    $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
+                    $include = ['content'];
                   @endphp
-
-                  @foreach($dataTypeRows as $row)
-                    @if(in_array($row->field, $include))
-                      @include('partials.formfieldresolver', [ 'row' => $row ])
-                      @php 
-                        $used++; 
-                        if($used === count($include)){
-                          break;
-                        }
-                      @endphp
-                    @endif
-                  @endforeach
+                  @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
 
               </div><!-- panel-body -->
 
@@ -118,20 +106,8 @@
               </div>
               @php
                 $include = ['status', 'news_belongsto_user_relationship'];
-                $used = 0;
               @endphp
-
-              @foreach($dataTypeRows as $row)
-                @if(in_array($row->field, $include))
-                  @include('partials.formfieldresolver', [ 'row' => $row ])
-                  @php 
-                    $used++; 
-                    if($used === count($include)){
-                      break;
-                    }
-                  @endphp
-                @endif
-              @endforeach
+              @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
           </div>
           <!-- End of General Item Settings -->
@@ -144,20 +120,8 @@
             <div class="panel-body">
               @php
                 $include = ['image'];
-                $used = 0;
               @endphp
-
-              @foreach($dataTypeRows as $row)
-                @if(in_array($row->field, $include))
-                  @include('partials.formfieldresolver', [ 'row' => $row ])
-                  @php 
-                    $used++; 
-                    if($used === count($include)){
-                      break;
-                    }
-                  @endphp
-                @endif
-              @endforeach
+              @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
           </div>
           <!-- Meta Data Settings -->
@@ -169,20 +133,8 @@
             <div class="panel-body meta_data">
               @php
                 $include = ['meta_title', 'meta_description'];
-                $used = 0;
               @endphp
-
-              @foreach($dataTypeRows as $row)
-                @if(in_array($row->field, $include))
-                  @include('partials.formfieldresolver', [ 'row' => $row ])
-                  @php 
-                    $used++; 
-                    if($used === count($include)){
-                      break;
-                    }
-                  @endphp
-                @endif
-              @endforeach
+              @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
             </div>
             <!-- End of Meta Data Settings -->
           </div>
