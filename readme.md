@@ -1,9 +1,9 @@
-# TutsHub 
+# TutsHub
 _In Progress_
 A coding tutorial website developed with Laravel 5.6 with Laravel Voyager as the admin.
 Overall, a project to test all things Laravel.
 
-## Project Setup
+## Project Setup - Without the use of homestead
 1. Clone or download this repo
 2. Create a .env file using the .env.example file
 3. From the root of this repo, run `composer install`
@@ -20,6 +20,20 @@ Overall, a project to test all things Laravel.
 14. Once logged in, you should get a warning from Voyager about the missing symlink. Click the `fix it` button and the error should go away.
 15. From here, upload the folder structure found in the provided `backups/storage.tar.gzip` or `zip` file. Replace the files found in your `public/storage/` folder and your `storage/app/public` folder (Sadly you will have to manually rename each file). If a user's profile avatar does not appear, go to Users, edit each user and re-assign their profile avatar. Feel free to delete the backups directory once everything is working
 13. If you would like to continue on with this project and work with the sass files, run `npm install`. Once done, running any of the default yarn commands should work. See the `package.json` for available commands.
+
+## Project Setup - With Homestead
+1. Follow steps 1 to 4 from the non-homestead project setup
+2. Ensure to install all dependencies required to use [Homestead](https://laravel.com/docs/5.6/homestead)
+  * (note: you don't have to install Homestead globally)
+3. Run `composer install` and then `npm install`
+4. Add a vhost pointing to the IP listed at the top of the `Homestead.yaml` file
+5. Do step 15 from the non-homestead project setup (Ignore the user profile avatars until you have access to the actual site)
+6. Now, you are ready to run `vagrant up`
+7. Once the VM is up, check that you can now hit your vhost. You will see an error at first
+8. Next, follow the instructions stated in this [post](https://stackoverflow.com/questions/33336659/how-to-import-existing-database-to-homestead) to import the `tutshub.sql` backup. Update the .env database table appropriately.
+9. Check that the newly created database contains 21 tables.
+10. Now you should be able to see the Tutshub home page when hitting the vhost.
+11. All that's left is to follow steps 12 & 13 in the other project setup instructions to navigate to the Voyager admin.
 
 Happy dev-ing!
 
