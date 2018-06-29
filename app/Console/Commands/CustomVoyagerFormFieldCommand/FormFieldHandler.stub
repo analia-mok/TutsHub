@@ -1,0 +1,16 @@
+<?php
+namespace TCG\Voyager\FormFields;
+
+class HANDLER_NAME extends AbstractHandler
+{
+    protected $codename = 'FIELD_NAME';
+    public function createContent($row, $dataType, $dataTypeContent, $options)
+    {
+        return view('voyager::formfields.FIELD_NAME', [
+            'row'             => $row,
+            'options'         => $options,
+            'dataType'        => $dataType,
+            'dataTypeContent' => $dataTypeContent,
+        ]);
+    }
+}

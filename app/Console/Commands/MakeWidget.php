@@ -52,7 +52,7 @@ class MakeWidget extends Command
         $icon_class = $this->ask('Enter voyager icon class [voyager-helm]');
         $icon_class = $icon_class ?? 'voyager-helm';
 
-        // TODO: Create new widget file
+        // Create new widget file
         $this->createWidget($widget_name, $model_name, $icon_class);
 
         // Success Message
@@ -67,22 +67,23 @@ class MakeWidget extends Command
      * @param String $icon_class
      * @return void
      */
-    private function createWidget($widget_name, $model_name, $icon_class){
+    private function createWidget($widget_name, $model_name, $icon_class)
+    {
 
         $model = '\\App\\' . $model_name;
-        $stub = $this->files->get( __DIR__ . '/WidgetCommand/Widget.stub' );
-        
+        $stub = $this->files->get(__DIR__ . '/WidgetCommand/Widget.stub');
+
         // Replace placeholders
         $stub = str_replace('LOWER_WIDGET_PLACEHOLDER', strtolower($widget_name), $stub);
         $stub = str_replace('WIDGET_PLACEHOLDER', $widget_name, $stub);
         $stub = str_replace('MODEL_PLACEHOLDER', $model, $stub);
         $stub = str_replace('ICON_PLACEHOLDER', $icon_class, $stub);
 
-        $this->files->put( __DIR__ . '/../../Widgets/' . $widget_name . '.php', $stub);
+        $this->files->put(__DIR__ . '/../../Widgets/' . $widget_name . '.php', $stub);
 
         $default_img_path = __DIR__ . '/../../../public/images/default.jpg';
 
-        if(!$this->files->exists($default_img_path)) {
+        if (!$this->files->exists($default_img_path)) {
             $this->files->copy(__DIR__ . '/WidgetCommand/default.jpg', $default_img_path);
         }
     }
