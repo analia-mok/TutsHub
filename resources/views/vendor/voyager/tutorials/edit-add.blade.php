@@ -31,13 +31,13 @@
       @if(!is_null($dataTypeContent->getKey()))
         {{ method_field("PUT") }}
       @endif
-      
+
       <!-- CSRF TOKEN -->
       {{ csrf_field() }}
-            
+
       <div class="row">
         <div class="col-md-8">
-          <!-- Title -->            
+          <!-- Title -->
           <div class="panel">
             <div class="panel-heading">
               <h3 class="panel-title">
@@ -89,7 +89,7 @@
 
               <div class="panel-footer">
                   <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
-              </div>              
+              </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -109,7 +109,7 @@
                 <input type="datetime" class="form-control date_picker" id="created_at" name="created_at" placeholder="Created At" value="@if(isset($dataTypeContent->created_at)){{ $dataTypeContent->created_at }}@endif" />
               </div>
               @php
-                $include = ['status', 'tutorial_belongsto_user_relationship', 'tutorial_belongstomany_category_relationship', 'tutorial_belongsto_guide_relationship'];
+                $include = ['status', 'tutorial_belongsto_user_relationship', 'tutorial_belongstomany_category_relationship', 'tutorial_belongsto_guide_relationship', 'guide_order'];
                 $used_fields = array_merge($used_fields, $include);
               @endphp
               @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
