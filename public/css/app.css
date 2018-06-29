@@ -125,6 +125,7 @@ main {
   background-color: #FCFCFC;
   -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.16);
           box-shadow: 0 6px 10px rgba(0, 0, 0, 0.16);
+  z-index: 20;
 }
 
 .nav__inner {
@@ -477,6 +478,7 @@ footer ul li a {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 0;
 }
 
 .news__breadcrumb,

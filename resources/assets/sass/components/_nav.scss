@@ -5,11 +5,12 @@
   width: 100%;
   background-color: $white;
   box-shadow: 0 6px 10px rgba(0, 0, 0, .16);
+  z-index: 20;
 
   &__inner{
     display: flex;
     align-content: center;
-    width: 90%; 
+    width: 90%;
     margin: 0 auto;
 
     @media screen and (min-width: $tablet) {
@@ -49,7 +50,7 @@
     }
 
   }
-  
+
   .nav__items{
     &--logo{
       margin-right: auto;
@@ -72,7 +73,7 @@
   }
 
   &__accordion {
-    width: 90%; 
+    width: 90%;
     margin: 0 auto;
 
     @media screen and (min-width: $tablet){
