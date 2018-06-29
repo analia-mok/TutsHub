@@ -7,8 +7,10 @@
 
 @section('content')
 <article class="news">
+  <div class="news__header-image">
+    <img src="{{ Voyager::image($news->thumbnail('large')) }}" alt="{{ $news->title }}">
+  </div>
   <h2 class="news__title">{{ $news->title }}</h2>
-  <img src="{{ Voyager::image($news->thumbnail('medium')) }}" alt="{{ $news->title }}">
   <section class="news__breadcrumb"><a href="/news">News</a>&nbsp;/&nbsp;Updated At:
     @php
       echo date('M d, Y', strtotime($news->updated_at))

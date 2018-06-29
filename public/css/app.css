@@ -463,9 +463,20 @@ footer ul li a {
   }
 }
 
-.news img {
-  display: inline-block;
+.news__header-image {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.news__header-image img {
+  display: block;
   width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .news__breadcrumb,
