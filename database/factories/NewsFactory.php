@@ -10,12 +10,12 @@ $factory->define(App\News::class, function (Faker $faker) {
 
     return [
         'title'             => $title,
-        'slug'              => str_slug( $title, '-' ),
+        'slug'              => str_slug($title, '-'),
         'content'           => $faker->paragraphs(rand(10, 20), true),
         'meta_title'        => $title,
         'meta_description'  => $faker->text(250),
         'status'            => $status_options[ rand(0, 2) ],
-        'image'             => $faker->imageUrl(768, 520),
+        'image'             => 'news/June2018/news' . rand(1, 5) . '.png',
         'published_date'    => date("Y-m-d H:i:s"),
     ];
 });

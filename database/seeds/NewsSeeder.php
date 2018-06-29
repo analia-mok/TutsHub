@@ -13,7 +13,7 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\News::class, 12)->create()->each(function($news){
+        factory(App\News::class, 10)->create()->each(function ($news) {
             // Grab Content Editor Role
             $role = Role::where('name', 'content editor')->firstOrFail();
 
