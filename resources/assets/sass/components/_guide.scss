@@ -1,0 +1,95 @@
+.guide {
+  &__header,
+  &__wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__header {
+    position: relative;
+    width: 90%;
+    overflow: hidden;
+    padding-top: 56.25%;
+    margin-top: 7rem;
+    height: 0;
+
+    img {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &__wrapper {
+
+    h2 {
+      padding-top: 0;
+      color: $slate-grey;
+      font-size: 36px;
+    }
+
+    section {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+
+      h3 {
+        color: $turquoise;
+        font-size: 24px;
+      }
+
+      &.guide__overview {
+        background-color: $off-white;
+        p, li {
+          font-family: $default-font !important;
+          margin: 0.5rem auto !important;
+        }
+
+        ol {
+          margin-top: 0;
+        }
+
+        li {
+          margin-bottom: 0.5rem !important;
+        }
+      }
+    }
+
+  }
+
+  &__tutorials {
+    &__list{
+      list-style: none;
+      padding: 0;
+
+      &__item {
+        display: block;
+        background-color: $off-white;
+        margin-bottom: 2rem;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+
+        h3 {
+          padding: 0;
+        }
+
+        em {
+          display: inline-block;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+          color: $slate-grey;
+        }
+
+        &__content {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}

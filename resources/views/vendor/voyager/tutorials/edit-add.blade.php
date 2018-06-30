@@ -62,7 +62,7 @@
           </div>
           <div class="panel">
             <div class="panel-heading">
-              <h3 class="panel-title">Post Content</h3>
+              <h3 class="panel-title">Tutorial Content</h3>
             </div>
               <div class="panel-body">
                   @if (count($errors) > 0)
@@ -80,7 +80,7 @@
                     // Accumulator to check if any extra fields are not handled
                     // Initial contains all fields created manually
                     $used_fields = [ 'title', 'slug', 'published_date', 'created_at' ];
-                    $include = ['overview', 'content'];
+                    $include = ['overview', 'excerpt', 'content'];
                     $used_fields = array_merge($used_fields, $include);
                   @endphp
                   @include('partials.formfieldresolver', [ 'dataTypeRows' => $dataTypeRows, 'include' => $include ])
