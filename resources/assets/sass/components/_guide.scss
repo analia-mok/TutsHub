@@ -32,7 +32,6 @@
     }
 
     section {
-      padding: 1.5rem;
       margin-bottom: 2rem;
 
       h3 {
@@ -41,6 +40,7 @@
       }
 
       &.guide__overview {
+        padding: 1.5rem;
         background-color: $off-white;
         p, li {
           font-family: $default-font !important;
@@ -80,15 +80,33 @@
         }
 
         em {
-          display: inline-block;
+          display: block;
           margin-bottom: 0.5rem;
           font-weight: 600;
           color: $slate-grey;
         }
 
+        @media screen and (min-width: $tablet) {
+          display: flex;
+
+          img {
+            max-width: 300px;
+            width: 300px;
+          }
+        }
+
         &__content {
           padding: 1rem;
+
+          a {
+            color: $cyan;
+          }
+
+          @media screen and (min-width: $tablet){
+            padding: 1.5rem;
+          }
         }
+
       }
     }
   }

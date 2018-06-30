@@ -24,6 +24,7 @@
               <h3>{{ $loop->index + 1 }}.&nbsp;{{ $tutorial->title }}</h3>
               <em> Written by {{ $tutorial->author->name }}</em>
               {!! str_limit($tutorial->excerpt, 250) !!}
+              <p><a href="/tutorials/{{$tutorial->slug}}">Read Tutorial</a></p>
             </div>
           </li>
         @endforeach

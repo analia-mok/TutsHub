@@ -558,7 +558,6 @@ footer ul li a {
 }
 
 .guide__wrapper section {
-  padding: 1.5rem;
   margin-bottom: 2rem;
 }
 
@@ -568,6 +567,7 @@ footer ul li a {
 }
 
 .guide__wrapper section.guide__overview {
+  padding: 1.5rem;
   background-color: #EFEFEF;
 }
 
@@ -607,13 +607,36 @@ footer ul li a {
 }
 
 .guide__tutorials__list__item em {
-  display: inline-block;
+  display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: #333333;
 }
 
+@media screen and (min-width: 768px) {
+  .guide__tutorials__list__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .guide__tutorials__list__item img {
+    max-width: 300px;
+    width: 300px;
+  }
+}
+
 .guide__tutorials__list__item__content {
   padding: 1rem;
+}
+
+.guide__tutorials__list__item__content a {
+  color: #0086BB;
+}
+
+@media screen and (min-width: 768px) {
+  .guide__tutorials__list__item__content {
+    padding: 1.5rem;
+  }
 }
 
