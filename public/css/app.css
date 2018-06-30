@@ -537,9 +537,24 @@ footer ul li a {
   position: relative;
   width: 90%;
   overflow: hidden;
-  padding-top: 56.25%;
   margin-top: 7rem;
   height: 0;
+  padding-top: 56.25%;
+}
+
+@media screen and (min-width: 768px) {
+  .guide__header {
+    width: 80%;
+    padding-top: 0;
+    height: 551px;
+    max-height: 551px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .guide__header {
+    width: 75%;
+  }
 }
 
 .guide__header img {
