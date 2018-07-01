@@ -1,0 +1,65 @@
+.latest-news {
+    h3 {
+        color: $slate-grey;
+        font-size: 1.5rem;
+    }
+
+    &__news{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+
+        &__item {
+            flex: 1 1 100%;
+            background-color: $off-white;
+            margin-bottom: 1rem;
+
+            @media screen and (min-width: $tablet) {
+                flex: 1 1 45%;
+                max-width: 50%;
+
+                &:nth-child(2n){
+                    margin-left: 1rem;
+                }
+            }
+
+            @media screen and (min-width: $desktop){
+                flex: 1 1 20%;
+                max-width: 25%;
+                &:not(:first-child){
+                    margin-left: 1rem;
+                }
+            }
+
+            &__image {
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            &__content {
+                padding: 1rem;
+
+                small, strong {
+                    display: block;
+                }
+
+                small {
+                    color: $turquoise;
+                    font-weight: 600;
+                }
+
+                strong a {
+                    color: $cyan;
+                    text-decoration: none;
+                    font-size: 1.2rem;
+                }
+            }
+
+        }
+    }
+}
