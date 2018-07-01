@@ -14,7 +14,7 @@
     {!! $guide->overview !!}
   </section>
   <section class="guide__tutorials">
-    <h3>Let's Begin</h3>
+    <h3>Let's Get Started</h3>
     <ul class="guide__tutorials__list">
       @if(count($tutorials))
         @foreach($tutorials as $tutorial)

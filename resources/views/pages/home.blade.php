@@ -21,4 +21,5 @@
   <strong>Sorry, there are no available posts</strong>
 @endif --}}
 <h2>This is the home page</h2>
+@include('partials.latest-news')
 @endsection

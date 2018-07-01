@@ -19,7 +19,6 @@ class PagesController extends Controller
      */
     public function index($slug = "")
     {
-
         if (empty($slug)) {
             // Empty slug indicated just a slug of slash
             // Direct to home page
