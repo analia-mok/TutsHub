@@ -62,4 +62,26 @@
 
         }
     }
+
+    &__button {
+        text-align: center;
+
+        @media screen and (min-width: $desktop) {
+            text-align: right;
+        }
+
+        a {
+            display: block;
+            background-color: $cyan;
+            color: $white;
+            text-decoration: none;
+            padding: 0.75rem;
+
+            @media screen and (min-width: $desktop) {
+                display: inline-block;
+                padding: 0.5rem 0.75rem;
+            }
+        }
+
+    }
 }

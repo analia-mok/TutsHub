@@ -733,3 +733,28 @@ footer ul li a {
   font-size: 1.2rem;
 }
 
+.latest-news__button {
+  text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .latest-news__button {
+    text-align: right;
+  }
+}
+
+.latest-news__button a {
+  display: block;
+  background-color: #0086BB;
+  color: #FCFCFC;
+  text-decoration: none;
+  padding: 0.75rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .latest-news__button a {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+  }
+}
+

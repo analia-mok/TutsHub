@@ -18,5 +18,8 @@
             </li>
             @endforeach
         </ul>
+        <div class="latest-news__button">
+            <a href="/news">Check Out More In News</a>
+        </div>
     </div>
 @endif
