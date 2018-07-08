@@ -20,9 +20,7 @@
   <div class="header__content">
     <h2>{{ $page->header_title }}</h2>
     <p>{{ $page->header_content }}</p>
-    <div>
-      @include('partials.search', ['data_type' => ($slug_base !== 'about' ? $slug_base : '')])
-    </div>
+    @include('partials.search', ['data_type' => ($slug_base !== 'about' ? $slug_base : '')])
   </div>
 </header>
 @endsection

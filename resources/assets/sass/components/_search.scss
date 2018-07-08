@@ -1,0 +1,25 @@
+.search {
+    width: 100%;
+    margin: 1rem auto 0;
+    &__input-container{
+        width: 70%;
+        margin: 0 auto;
+        border: 2px solid $white;
+        border-radius: 25px;
+
+        input[type=text]{
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            font-size: 1rem;
+            color: $white;
+        }
+
+        input[type=text]::placeholder{
+            color: $off-white;
+        }
+    }
+}

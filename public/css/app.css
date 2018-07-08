@@ -311,6 +311,45 @@ footer ul li a {
   line-height: 3rem;
 }
 
+.search {
+  width: 100%;
+  margin: 1rem auto 0;
+}
+
+.search__input-container {
+  width: 70%;
+  margin: 0 auto;
+  border: 2px solid #FCFCFC;
+  border-radius: 25px;
+}
+
+.search__input-container input[type=text] {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  color: #FCFCFC;
+}
+
+.search__input-container input[type=text]::-webkit-input-placeholder {
+  color: #EFEFEF;
+}
+
+.search__input-container input[type=text]:-ms-input-placeholder {
+  color: #EFEFEF;
+}
+
+.search__input-container input[type=text]::-ms-input-placeholder {
+  color: #EFEFEF;
+}
+
+.search__input-container input[type=text]::placeholder {
+  color: #EFEFEF;
+}
+
 .page {
   max-width: 100%;
 }
