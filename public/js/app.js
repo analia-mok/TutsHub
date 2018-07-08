@@ -86,6 +86,12 @@ module.exports = __webpack_require__(2);
     menuIcon.addEventListener('click', toggleNav);
 
     accordion = document.querySelector('.nav__accordion');
+    var searchFrom = document.querySelector('#searchForm');
+
+    if (searchForm !== undefined) {
+      var searchBox = searchForm.querySelector('input[type=text]');
+      searchBox.addEventListener('keypress', search);
+    }
   }
 
   function toggleNav() {
@@ -102,7 +108,39 @@ module.exports = __webpack_require__(2);
     console.log(accordion.classList);
   }
 
-  return {};
+  // Search Method Launched By Ajax
+  function search(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      var keyword = e.target.value;
+      var contentType = e.target.getAttribute('data-contenttype');
+
+      var requestUrl = 'http://tutshub/search?keyword=' + keyword + '&contentType=' + contentType;
+      fetch(requestUrl).then(function (res) {
+        return res.json();
+      }).then(function (result) {
+        console.log({ result: result });
+        var page = document.querySelector('.page');
+        if (page) {
+          page.innerHTML = result.html;
+        }
+      }, function (error) {
+        console.log({ error: error });
+      });
+    }
+  }
+
+  function searchPagination(e) {
+    if (document.querySelector('.search__pagination') !== null) {
+      e.preventDefault();
+      console.log({ e: e });
+    }
+  }
+
+  return {
+    'search': search,
+    'searchPagination': searchPagination
+  };
 })();
 
 /***/ }),

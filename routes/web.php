@@ -15,6 +15,7 @@
 Route::get('/tutorials/{slug}', 'TutorialsController@index');
 Route::get('/guides/{slug}', 'GuidesController@index');
 Route::get('/news/{slug}', 'NewsController@index');
+Route::get('/search', 'SearchController@search');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

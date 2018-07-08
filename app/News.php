@@ -36,5 +36,4 @@ class News extends Model
     {
         return $this->status === 'PUBLISHED';
     }
-
 }
